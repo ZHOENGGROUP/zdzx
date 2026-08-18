@@ -1,0 +1,33 @@
+name: Initialize Docusaurus
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Generate Docusaurus project and install all deps
+        run: |
+          npx create-docusaurus@latest temp classic --javascript --skip-install
+          shopt -s dotglob
+          mv temp/* .
+          rmdir temp
+          npm install
+          npm install remark-math rehype-katex @docusaurus/theme-search-algolia
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Initialize Docusaurus with full dependencies" || echo "No changes"
+          git push
