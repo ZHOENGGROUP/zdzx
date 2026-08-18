@@ -1,30 +1,225 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
+/* ======================== 全局主色调 ======================== */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #3498db;
+  --ifm-color-primary-dark: #2e86c1;
+  --ifm-color-primary-darker: #2874a6;
+  --ifm-color-primary-darkest: #21618c;
+  --ifm-color-primary-light: #5dade2;
+  --ifm-color-primary-lighter: #85c1e9;
+  --ifm-color-primary-lightest: #aed6f1;
+  --ifm-color-primary-contrast-background: #ebf5fb;
+  --ifm-color-primary-contrast-foreground: #1a5276;
+  --ifm-link-color: var(--ifm-color-primary-dark);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #3498db;
+  --ifm-color-primary-dark: #5dade2;
+  --ifm-color-primary-darker: #85c1e9;
+  --ifm-color-primary-darkest: #aed6f1;
+  --ifm-color-primary-light: #2e86c1;
+  --ifm-color-primary-lighter: #2874a6;
+  --ifm-color-primary-lightest: #21618c;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* ======================== 首页卡片 ======================== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.card {
+  flex: 1 1 280px;
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  text-decoration: none !important;
+  color: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.card p {
+  margin-bottom: 0;
+  opacity: 0.8;
+}
+
+/* ======================== 折叠框：浅色模式（方角，纯蓝色系） ======================== */
+details {
+  border: 1px solid #3498db;
+  border-radius: 0;                  /* 方角 */
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  background-color: #ebf5fb;
+  transition: border-color 0.2s;
+}
+
+details[open] {
+  border-color: #3498db;
+  background-color: #ffffff;
+}
+
+details summary {
+  font-weight: 600;
+  color: #2e86c1;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  position: relative;
+  padding-left: 1.2em;
+}
+
+details summary::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.2s;
+  color: #2e86c1;
+  font-size: 0.9em;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* ======================== 折叠框：暗色模式（方角，纯蓝色系） ======================== */
+[data-theme='dark'] details {
+  border-color: #5dade2;
+  background-color: #1a2a3a;
+  border-radius: 0;
+}
+
+[data-theme='dark'] details[open] {
+  border-color: #3498db;
+  background-color: #1e2e3f;
+}
+
+[data-theme='dark'] details summary {
+  color: #aed6f1;
+}
+
+[data-theme='dark'] details summary::before {
+  color: #aed6f1;
+}
+
+[data-theme='dark'] details[open] summary {
+  color: #85c1e9;
+}
+
+[data-theme='dark'] details[open] summary::before {
+  color: #85c1e9;
+}
+
+/* ======================== 导航栏顺序 ======================== */
+.navbar__items--right {
+  display: flex;
+  flex-direction: row;
+}
+
+button.colorModeToggle {
+  order: 0;
+  margin-left: 0;
+}
+
+.navbar__search {
+  order: 1;
+}
+
+/* ======================== 响应式 ======================== */
+@media screen and (max-width: 996px) {
+  .card {
+    flex: 1 1 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__items--right {
+    flex-wrap: nowrap !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  button.colorModeToggle {
+    flex-shrink: 0 !important;
+    min-width: 38px;
+    padding: 6px !important;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card {
+    flex: 1 1 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* ======================== 页脚多行保留 ======================== */
+.footer__copyright {
+  white-space: pre-wrap;
+}
+
+/* ======================== GitHub 图标链接 ======================== */
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") no-repeat;
+}
+.header-github-link:hover {
+  opacity: 0.7;
+}
+
+/* 隐藏原链接文字（只显示图标） */
+.header-github-link {
+  font-size: 0;
+}
+
+/* ======================== 颜色切换按钮与 GitHub 图标对齐 ======================== */
+button.colorModeToggle {
+  width: 24px;                 /* 与 GitHub 图标宽度一致 */
+  height: 24px;                /* 与 GitHub 图标高度一致 */
+  padding: 0;                  /* 去掉内边距 */
+  display: inline-flex;        /* 弹性容器让 SVG 居中 */
+  align-items: center;
+  justify-content: center;
+  background: none;            /* 确保无背景 */
+  border: none;                /* 无边框 */
+  cursor: pointer;
+  /* 保留之前的排序属性 */
+  order: 0;
+  margin-left: 0;
+}
+
+button.colorModeToggle svg {
+  width: 20px;                 /* 图标内部保持原大小，不撑破按钮 */
+  height: 20px;
+  display: block;
 }
