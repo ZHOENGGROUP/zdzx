@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import clsx from 'clsx';
 
@@ -82,7 +82,9 @@ export default function ColorModeToggle() {
 
   return (
     <button
-      className={clsx('clean-btn', 'colorModeToggle"
+      className={clsx('clean-btn', 'colorModeToggle')}
+      onClick={handleClick}
+      type="button"
       aria-label={titleMap[preference]}
       title={titleMap[preference]}
     >
