@@ -15,6 +15,7 @@ const config = {
   organizationName: 'ZHOENGGROUP',
   projectName: 'zdzx',
 
+  trailingSlash: false,
   onBrokenLinks: 'warn',
 
   markdown: {
