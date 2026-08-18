@@ -2,11 +2,16 @@ name: Clean Dependencies
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+
 jobs:
   clean:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: rm -rf node_modules package-lock.json
       - run: npm install
       - run: git config user.name "github-actions[bot]"
