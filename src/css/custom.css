@@ -219,7 +219,7 @@ button.colorModeToggle {
 }
 
 button.colorModeToggle svg {
-  width: 20px;                 /* 图标内部保持原大小，不撑破按钮 */
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: block;
 }
