@@ -68,7 +68,7 @@ const config = {
   // ==================== 主题插件 ====================
   themes: [
     // Algolia 搜索主题插件
-    '@docusaurus/theme-search-algolia',
+    //'@docusaurus/theme-search-algolia',
   ],
 
   stylesheets: [
@@ -94,7 +94,7 @@ const config = {
       },
 
       // ==================== Algolia 搜索配置 ====================
-      algolia: {
+      /*algolia: {
         // 替换为你的真实值（申请方式见后文）
         appId: 'YOUR_APP_ID',
         apiKey: 'YOUR_SEARCH_API_KEY',   // 注意：这是 Search-Only API Key
@@ -102,7 +102,7 @@ const config = {
         contextualSearch: true,
         // 可选：搜索参数
         searchParameters: {},
-      },
+      },*/
 
       navbar: {
         title: '正中 · 中心',
