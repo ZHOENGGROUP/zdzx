@@ -1,0 +1,16 @@
+name: Clean Dependencies
+
+on: workflow_dispatch
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: rm -rf node_modules package-lock.json
+      - run: npm install
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+      - run: git add package-lock.json
+      - run: git commit -m "Regenerate package-lock" || echo "No changes"
+      - run: git push
