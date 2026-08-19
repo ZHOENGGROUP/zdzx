@@ -1,4 +1,4 @@
-// test 0.0.5
+// test 0.0.6
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,13 +15,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合，更大更靠边 */}
+        {/* 左上角校徽组合，超大靠边 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
           className={styles.heroLogo}
-          width="280"
-          height="77"
+          width="300"
+          height="83"
           loading="eager"
         />
         <div className={styles.heroText}>
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== 特色宣传区（1000x700） ===== */}
+        {/* ===== 特色宣传区 ===== */}
         <section className={styles.featureSection}>
           <div className={styles.container}>
             <div className={styles.featureCard}>
