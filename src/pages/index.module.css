@@ -1,11 +1,11 @@
 /* ===== 顶部 Hero 区域 ===== */
 .heroBanner {
-  padding: 4rem 0;                 /* 与 Docusaurus 默认高度一致 */
+  padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
   background-color: var(--ifm-color-primary);
-  background-image: none;          /* 确保无渐变 */
+  background-image: none;
 }
 
 .heroContainer {
@@ -16,11 +16,10 @@
   min-height: 160px;
 }
 
-/* 校徽图标：稍微大一点，紧贴左上角 */
 .heroLogo {
   position: absolute;
-  left: 0.2rem;
-  top: 0.2rem;
+  left: 0.1rem;
+  top: 0.1rem;
   height: 72px;
   width: auto;
   object-fit: contain;
@@ -32,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 3.2rem;              /* 防止与图标重叠 */
+  margin-top: 3.2rem;
   padding: 0 1rem;
 }
 
@@ -63,15 +62,13 @@
   margin-bottom: 2rem;
 }
 
-/* 轮播容器：无背景，无白带/黑带 */
 .carouselWrapper {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  position: relative;              /* 为箭头定位 */
+  position: relative;
 }
 
-/* 确保每一张幻灯片具有固定比例，图片完全填充 */
 .slideItem {
   aspect-ratio: 2128 / 846;
   overflow: hidden;
@@ -83,7 +80,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;               /* 确保图片覆盖整个区域，无空白 */
+  object-fit: cover;
   margin: 0;
   padding: 0;
   border: none;
