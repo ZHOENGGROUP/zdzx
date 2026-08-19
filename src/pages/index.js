@@ -1,4 +1,4 @@
-// test 0.0.8
+// Release 1.0.0
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,7 +15,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合，稍微大一点，更靠边 */}
+        {/* 校徽校名组合图标 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
@@ -48,7 +48,7 @@ export default function Home() {
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    arrows: true,               // 桌面端显示箭头，悬停时出现
+    arrows: true,
     fade: true,
     cssEase: 'ease-in-out',
     responsive: [
@@ -64,21 +64,23 @@ export default function Home() {
 
   // 宣传图数据（5张 2128x846）
   const banners = [
-    { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1' },
-    { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '校园风光 2' },
-    { id: 3, src: '/img/zdzx_xtl_t.jpg', alt: '校园风光 3' },
-    { id: 4, src: '/img/zdzx_zwy_t.jpg', alt: '校园风光 4' },
-    { id: 5, src: '/img/zdzx_all_t.jpg', alt: '校园风光 5' },
+    { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校门带文字' },
+    { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '清华门带文字' },
+    { id: 3, src: '/img/zdzx_xtl_t.jpg', alt: '香桐楼带文字' },
+    { id: 4, src: '/img/zdzx_zwy_t.jpg', alt: '尊闻园带文字' },
+    { id: 5, src: '/img/zdzx_all_t.jpg', alt: '鸟瞰图带文字' },
   ];
 
   // 链接卡片数据
   const linkCards = [
-    { id: 1, title: '学校概况', desc: '了解学校历史、办学理念与校园文化', icon: '🏛️', link: '/about' },
-    { id: 2, title: '招生信息', desc: '最新招生政策、专业设置与报考指南', icon: '📝', link: '/admissions' },
-    { id: 3, title: '教学科研', desc: '师资力量、学科建设与科研成果展示', icon: '🔬', link: '/academics' },
-    { id: 4, title: '校园生活', desc: '丰富多彩的校园活动与学生社团风采', icon: '🎉', link: '/campus-life' },
-    { id: 5, title: '新闻中心', desc: '学校最新动态、通知公告与媒体报道', icon: '📰', link: '/news' },
-    { id: 6, title: '校友之家', desc: '校友风采、校友活动与捐赠支持', icon: '🤝', link: '/alumni' },
+    { id: 1, title: '帮助中心', desc: '网站协议、公告通知与服务指南', icon: '📚', link: '/help' },
+    { id: 2, title: '新闻中心', desc: '官方动态、校园新闻与媒体报道', icon: '📰', link: '/news' },
+    { id: 3, title: '文章中心', desc: '学术成果、论文专著与创新博客', icon: '📝', link: '/article' },
+    { id: 4, title: '活动中心', desc: '社团风采、文体赛事与校园节日', icon: '🎉', link: '/activity' },
+    { id: 5, title: '校园中心', desc: '学校概况、校园资源与文化氛围', icon: '🏫', link: '/‌campus' },
+    { id: 6, title: '科技中心', desc: '科技创新、实验平台与技术前沿', icon: '💻', link: '/technology' },
+    { id: 7, title: '竞赛中心', desc: '竞赛规则、学习平台与奖项荣誉', icon: '🏆', link: '/contest' },
+    { id: 8, title: '校友中心', desc: '校友风采、联络活动与捐赠支持', icon: '🎓', link: '/alumni' },
   ];
 
   return (
@@ -86,7 +88,7 @@ export default function Home() {
       <HomepageHeader />
 
       <main>
-        {/* 宣传图轮播（无链接、无遮罩） */}
+        {/* 宣传图轮播 */}
         <section className={styles.carouselSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>校园风采</h2>
@@ -123,8 +125,11 @@ export default function Home() {
               <div className={styles.featureContent}>
                 <h3 className={styles.featureTitle}>筑梦未来 · 扬帆起航</h3>
                 <p className={styles.featureDesc}>
-                  学校秉承"立德树人、知行合一"的办学理念，
-                  致力于培养具有创新精神和社会责任感的优秀人才。
+                  河北正定中学秉承“明德、笃学、强身、报国”的校训，
+                  弘扬“身正心定，闳中博学”的精神，
+                  以“为提升国民素质助力，为学生终身发展奠基”为办学理念，
+                  始终坚持立德树人、五育并举，
+                  致力于培养有思想、有能力、有情怀、有担当的时代新人。
                   在这里，每一个梦想都被珍视，每一份努力都被看见。
                 </p>
                 <div className={styles.featureButtons}>
@@ -140,7 +145,7 @@ export default function Home() {
         <section className={styles.cardsSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>快速导航</h2>
-            <p className={styles.sectionSubtitle}>一键直达您关心的内容</p>
+            <p className={styles.sectionSubtitle}>河北正定中学 · 线上活动中心</p>
             <div className={styles.cardsGrid}>
               {linkCards.map((card) => (
                 <Link key={card.id} to={card.link} className={styles.cardLink}>
