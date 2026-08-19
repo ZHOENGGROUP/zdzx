@@ -73,14 +73,14 @@ export default function Home() {
 
   // 链接卡片数据
   const linkCards = [
-    { id: 1, title: '帮助中心', desc: '网站协议、公告通知与服务指南', icon: '📚', link: '/help' },
-    { id: 2, title: '新闻中心', desc: '官方动态、校园新闻与媒体报道', icon: '📰', link: '/news' },
-    { id: 3, title: '文章中心', desc: '学术成果、论文专著与创新博客', icon: '📝', link: '/article' },
-    { id: 4, title: '活动中心', desc: '社团风采、文体赛事与校园节日', icon: '🎉', link: '/activity' },
-    { id: 5, title: '校园中心', desc: '学校概况、校园资源与文化氛围', icon: '🏫', link: '/‌campus' },
-    { id: 6, title: '科技中心', desc: '科技创新、实验平台与技术前沿', icon: '💻', link: '/technology' },
-    { id: 7, title: '竞赛中心', desc: '竞赛规则、学习平台与奖项荣誉', icon: '🏆', link: '/contest' },
-    { id: 8, title: '校友中心', desc: '校友风采、联络活动与捐赠支持', icon: '🎓', link: '/alumni' },
+    { id: 1, title: '帮助中心', desc: '网站协议、公告通知与服务指南', icon: '📚', link: '/docs/help' },
+    { id: 2, title: '新闻中心', desc: '官方动态、校园新闻与媒体报道', icon: '📰', link: '/docs/news' },
+    { id: 3, title: '文章中心', desc: '学术成果、论文专著与创新博客', icon: '📝', link: '/docs/article' },
+    { id: 4, title: '活动中心', desc: '社团风采、文体赛事与校园节日', icon: '🎉', link: '/docs/activity' },
+    { id: 5, title: '校园中心', desc: '学校概况、校园资源与文化氛围', icon: '🏫', link: '/‌docs/campus' },
+    { id: 6, title: '科技中心', desc: '科技创新、实验平台与技术前沿', icon: '💻', link: '/docs/technology' },
+    { id: 7, title: '竞赛中心', desc: '竞赛规则、学习平台与奖项荣誉', icon: '🏆', link: '/docs/contest' },
+    { id: 8, title: '校友中心', desc: '校友风采、联络活动与捐赠支持', icon: '🎓', link: '/docs/alumni' },
   ];
 
   return (
@@ -133,8 +133,8 @@ export default function Home() {
                   在这里，每一个梦想都被珍视，每一份努力都被看见。
                 </p>
                 <div className={styles.featureButtons}>
-                  <Link to="/about" className={styles.btnPrimary}>了解详情</Link>
-                  <Link to="/admissions" className={styles.btnOutline}>加入我们</Link>
+                  <Link to="/docs/about" className={styles.btnPrimary}>了解详情</Link>
+                  <Link to="/docs/about/join" className={styles.btnOutline}>加入我们</Link>
                 </div>
               </div>
             </div>
