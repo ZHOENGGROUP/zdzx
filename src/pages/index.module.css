@@ -1,10 +1,11 @@
 /* ===== 顶部 Hero 区域 ===== */
 .heroBanner {
-  padding: 4rem 0;               /* 恢复为 Docusaurus 默认高度 */
+  padding: 4rem 0;                 /* 与 Docusaurus 默认高度一致 */
   text-align: center;
   position: relative;
   overflow: hidden;
   background-color: var(--ifm-color-primary);
+  background-image: none;          /* 确保无渐变 */
 }
 
 .heroContainer {
@@ -15,12 +16,12 @@
   min-height: 160px;
 }
 
-/* 校徽图标：紧贴左上角，大小不变 */
+/* 校徽图标：稍微大一点，紧贴左上角 */
 .heroLogo {
   position: absolute;
-  left: 0.1rem;                 /* 更靠左 */
-  top: 0.1rem;                  /* 更靠上 */
-  height: 66px;                 /* 固定高度，与原先一致 */
+  left: 0.2rem;
+  top: 0.2rem;
+  height: 72px;
   width: auto;
   object-fit: contain;
   z-index: 1;
@@ -31,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;             /* 为左上角图标留出空间 */
+  margin-top: 3.2rem;              /* 防止与图标重叠 */
   padding: 0 1rem;
 }
 
@@ -62,53 +63,80 @@
   margin-bottom: 2rem;
 }
 
-/* 轮播容器：无背景，干净 */
+/* 轮播容器：无背景，无白带/黑带 */
 .carouselWrapper {
-  border-radius: 8px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;              /* 为箭头定位 */
 }
 
-/* 确保 react-slick 内部结构无额外间距 */
-.slick-list,
-.slick-track {
-  margin: 0;
-  padding: 0;
-}
-
-.slideItem,
-.slick-slide {
-  display: block;
+/* 确保每一张幻灯片具有固定比例，图片完全填充 */
+.slideItem {
+  aspect-ratio: 2128 / 846;
+  overflow: hidden;
   line-height: 0;
+  outline: none;
 }
 
-.slideImage,
-.slick-slide img {
+.slideImage {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;               /* 确保图片覆盖整个区域，无空白 */
   margin: 0;
   padding: 0;
   border: none;
 }
 
-/* 美化轮播指示点 */
-.slick-dots {
-  bottom: 10px;
+/* ===== react-slick 箭头（桌面端悬停出现） ===== */
+:global(.slick-prev),
+:global(.slick-next) {
   z-index: 10;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.slick-dots li {
+/* 悬停轮播容器时显示箭头 */
+.carouselWrapper:hover :global(.slick-prev),
+.carouselWrapper:hover :global(.slick-next) {
+  opacity: 1;
+}
+
+:global(.slick-prev) {
+  left: 15px;
+}
+
+:global(.slick-next) {
+  right: 15px;
+}
+
+:global(.slick-prev:before),
+:global(.slick-next:before) {
+  font-size: 36px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== react-slick 指示点 ===== */
+:global(.slick-dots) {
+  bottom: 15px;
+  z-index: 5;
+}
+
+:global(.slick-dots li) {
   margin: 0 3px;
 }
 
-.slick-dots li button:before {
+:global(.slick-dots li button:before) {
   font-size: 10px;
   color: #ffffff !important;
   opacity: 0.7 !important;
 }
 
-.slick-dots li.slick-active button:before {
+:global(.slick-dots li.slick-active button:before) {
   color: var(--ifm-color-primary) !important;
   opacity: 1 !important;
 }
