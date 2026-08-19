@@ -1,4 +1,4 @@
-// test 0.0.6
+// test 0.0.7
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,13 +15,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合，超大靠边 */}
+        {/* 左上角校徽组合，紧贴左上角 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
           className={styles.heroLogo}
-          width="300"
-          height="83"
+          width="240"
+          height="66"
           loading="eager"
         />
         <div className={styles.heroText}>
@@ -38,7 +38,7 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  // 轮播配置（高级版）
+  // 轮播配置
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -62,7 +62,7 @@ export default function Home() {
     ],
   };
 
-  // 宣传图数据（5张 2128x846）
+  // 宣传图数据
   const banners = [
     { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1' },
     { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '校园风光 2' },
@@ -73,59 +73,20 @@ export default function Home() {
 
   // 链接卡片数据
   const linkCards = [
-    {
-      id: 1,
-      title: '学校概况',
-      desc: '了解学校历史、办学理念与校园文化',
-      icon: '🏛️',
-      link: '/about',
-    },
-    {
-      id: 2,
-      title: '招生信息',
-      desc: '最新招生政策、专业设置与报考指南',
-      icon: '📝',
-      link: '/admissions',
-    },
-    {
-      id: 3,
-      title: '教学科研',
-      desc: '师资力量、学科建设与科研成果展示',
-      icon: '🔬',
-      link: '/academics',
-    },
-    {
-      id: 4,
-      title: '校园生活',
-      desc: '丰富多彩的校园活动与学生社团风采',
-      icon: '🎉',
-      link: '/campus-life',
-    },
-    {
-      id: 5,
-      title: '新闻中心',
-      desc: '学校最新动态、通知公告与媒体报道',
-      icon: '📰',
-      link: '/news',
-    },
-    {
-      id: 6,
-      title: '校友之家',
-      desc: '校友风采、校友活动与捐赠支持',
-      icon: '🤝',
-      link: '/alumni',
-    },
+    { id: 1, title: '学校概况', desc: '了解学校历史、办学理念与校园文化', icon: '🏛️', link: '/about' },
+    { id: 2, title: '招生信息', desc: '最新招生政策、专业设置与报考指南', icon: '📝', link: '/admissions' },
+    { id: 3, title: '教学科研', desc: '师资力量、学科建设与科研成果展示', icon: '🔬', link: '/academics' },
+    { id: 4, title: '校园生活', desc: '丰富多彩的校园活动与学生社团风采', icon: '🎉', link: '/campus-life' },
+    { id: 5, title: '新闻中心', desc: '学校最新动态、通知公告与媒体报道', icon: '📰', link: '/news' },
+    { id: 6, title: '校友之家', desc: '校友风采、校友活动与捐赠支持', icon: '🤝', link: '/alumni' },
   ];
 
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description={siteConfig.tagline}
-    >
+    <Layout title={`${siteConfig.title}`} description={siteConfig.tagline}>
       <HomepageHeader />
 
       <main>
-        {/* ===== 宣传图轮播 ===== */}
+        {/* 宣传图轮播 */}
         <section className={styles.carouselSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>校园风采</h2>
@@ -147,7 +108,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== 特色宣传区 ===== */}
+        {/* 特色宣传区 */}
         <section className={styles.featureSection}>
           <div className={styles.container}>
             <div className={styles.featureCard}>
@@ -167,19 +128,15 @@ export default function Home() {
                   在这里，每一个梦想都被珍视，每一份努力都被看见。
                 </p>
                 <div className={styles.featureButtons}>
-                  <Link to="/about" className={styles.btnPrimary}>
-                    了解详情
-                  </Link>
-                  <Link to="/admissions" className={styles.btnOutline}>
-                    加入我们
-                  </Link>
+                  <Link to="/about" className={styles.btnPrimary}>了解详情</Link>
+                  <Link to="/admissions" className={styles.btnOutline}>加入我们</Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== 链接卡片区 ===== */}
+        {/* 链接卡片区 */}
         <section className={styles.cardsSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>快速导航</h2>
