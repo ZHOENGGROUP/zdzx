@@ -1,0 +1,24 @@
+name: Install Slick Carousel
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install react-slick slick-carousel
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "Install react-slick and slick-carousel" || echo "No changes"
+          git push
