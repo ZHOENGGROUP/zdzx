@@ -1,4 +1,4 @@
-// test 0.0.7
+// test 0.0.8
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,13 +15,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合，紧贴左上角 */}
+        {/* 左上角校徽组合，稍微大一点，更靠边 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
           className={styles.heroLogo}
-          width="240"
-          height="66"
+          width="260"
+          height="72"
           loading="eager"
         />
         <div className={styles.heroText}>
@@ -48,7 +48,7 @@ export default function Home() {
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    arrows: true,
+    arrows: true,               // 桌面端显示箭头，悬停时出现
     fade: true,
     cssEase: 'ease-in-out',
     responsive: [
@@ -62,7 +62,7 @@ export default function Home() {
     ],
   };
 
-  // 宣传图数据
+  // 宣传图数据（5张 2128x846）
   const banners = [
     { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1' },
     { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '校园风光 2' },
@@ -86,7 +86,7 @@ export default function Home() {
       <HomepageHeader />
 
       <main>
-        {/* 宣传图轮播 */}
+        {/* 宣传图轮播（无链接、无遮罩） */}
         <section className={styles.carouselSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>校园风采</h2>
