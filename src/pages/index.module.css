@@ -1,23 +1,247 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
+/* 校徽横幅 */
+.heroSection {
   display: flex;
-  align-items: center;
   justify-content: center;
+  padding: 2rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-height: 442px;
+  object-fit: contain;
+}
+
+/* 轮播区域 */
+.carouselSection,
+.featureSection,
+.cardsSection {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.carouselWrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slideLink {
+  display: block;
+  text-decoration: none;
+}
+
+.slideImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+.slideOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  padding: 20px;
+  text-align: center;
+}
+
+.slideLabel {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot,
+.dotActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dotActive {
+  background-color: var(--ifm-color-primary);
+}
+
+/* 特色宣传区 */
+.featureCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.featureImageWrapper {
+  flex: 1 1 45%;
+  max-width: 500px;
+}
+
+.featureImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.featureContent {
+  flex: 1 1 45%;
+  padding: 1rem;
+}
+
+.featureTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.featureDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.featureButtons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btnPrimary,
+.btnOutline {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.btnOutline {
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.btnOutline:hover {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* 链接卡片区 */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.cardLink {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.card {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+}
+
+.cardIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+}
+
+.cardArrow {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary);
+}
+
+/* 响应式 */
+@media screen and (max-width: 768px) {
+  .featureCard {
+    flex-direction: column;
+  }
+  .heroImage {
+    max-height: 250px;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
 }
