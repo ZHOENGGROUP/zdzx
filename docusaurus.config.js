@@ -5,8 +5,8 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '正中活动中心',
-  tagline: '中政集团 · 河北正定中学活动中心',
+  title: '河北正定中学',
+  tagline: '河北正定中学 · 线上活动中心',
   favicon: 'img/zdzx.ico',
 
   url: 'https://zdzx.zhoeng.com.cn',
@@ -211,7 +211,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © 2025 - ${new Date().getFullYear()} 中政集团 ZHONG ZHENG GROUP   Copyright © 2025 - ${new Date().getFullYear()} 中政科技 ZHONG ZHENG TECHNOLOGY\nBuilt with Docusaurus.`,
+        copyright: `Copyright © 2025–${new Date().getFullYear()} 中政集团 ZHONG ZHENG GROUP · 中政科技 ZHONG ZHENG TECHNOLOGY\nBuilt with <a href="https://docusaurus.io" target="_blank">Docusaurus</a>.`,
       },
 
       prism: {
