@@ -1,25 +1,44 @@
-/* 校徽横幅 */
-.heroSection {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0;
-  background-color: var(--ifm-background-color);
+/* ===== 顶部 Hero 区域（左上角图标 + 居中文字） ===== */
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ifm-color-primary-darker) 0%, var(--ifm-color-primary) 100%);
 }
 
 .heroContainer {
-  width: 100%;
-  max-width: 1200px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.heroImage {
-  width: 100%;
-  height: auto;
-  max-height: 442px;
+.heroLogo {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  height: 55px;
+  width: auto;
   object-fit: contain;
 }
 
-/* 轮播区域 */
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroTitle {
+  /* 使用 Docusaurus 默认类，无需额外样式 */
+}
+
+.heroSubtitle {
+  /* 使用 Docusaurus 默认类，无需额外样式 */
+}
+
+/* ===== 轮播区域 ===== */
 .carouselSection,
 .featureSection,
 .cardsSection {
@@ -47,7 +66,6 @@
 }
 
 .carouselWrapper {
-  position: relative;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -62,7 +80,6 @@
   width: 100%;
   height: auto;
   display: block;
-  transition: opacity 0.5s ease;
 }
 
 .slideOverlay {
@@ -81,34 +98,7 @@
   font-weight: 500;
 }
 
-.dotsContainer {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-}
-
-.dot,
-.dotActive {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.dot {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.dotActive {
-  background-color: var(--ifm-color-primary);
-}
-
-/* 特色宣传区 */
+/* ===== 特色宣传区 ===== */
 .featureCard {
   display: flex;
   flex-wrap: wrap;
@@ -180,7 +170,7 @@
   color: #fff;
 }
 
-/* 链接卡片区 */
+/* ===== 链接卡片区 ===== */
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -233,13 +223,20 @@
   color: var(--ifm-color-primary);
 }
 
-/* 响应式 */
+/* ===== 响应式 ===== */
 @media screen and (max-width: 768px) {
-  .featureCard {
+  .heroContainer {
     flex-direction: column;
   }
-  .heroImage {
-    max-height: 250px;
+  .heroLogo {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  .heroText {
+    width: 100%;
+  }
+  .featureCard {
+    flex-direction: column;
   }
   .sectionTitle {
     font-size: 1.5rem;
