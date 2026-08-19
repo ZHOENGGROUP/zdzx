@@ -1,10 +1,10 @@
 /* ===== 顶部 Hero 区域 ===== */
 .heroBanner {
-  padding: 3.5rem 0;                /* 降低高度 */
+  padding: 3.2rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-color-primary);   /* 纯色 */
+  background-color: var(--ifm-color-primary);
 }
 
 .heroContainer {
@@ -12,17 +12,18 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 170px;                /* 适当减小 */
+  min-height: 160px;
 }
 
-/* 左上角校徽组合，更靠边、更大 */
+/* 更靠左上角的图标，更大 */
 .heroLogo {
   position: absolute;
-  left: 0.8rem;                    /* 更靠左 */
-  top: 0.8rem;                     /* 更靠上 */
-  height: 77px;
+  left: 0.4rem;                /* 几乎贴边 */
+  top: 0.4rem;
+  height: 83px;                /* 大图标 */
   width: auto;
   object-fit: contain;
+  z-index: 1;
 }
 
 .heroText {
@@ -30,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;                /* 为 Logo 留出空间 */
+  margin-top: 3.5rem;          /* 避免与图标重叠 */
   padding: 0 1rem;
 }
 
@@ -65,43 +66,46 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: var(--ifm-background-color); /* 防止白带 */
+  background-color: #000;            /* 黑底，防止图片边缘白带 */
 }
 
-.slideItem {
-  /* 确保图片占满容器，无白边 */
+/* 直接作用于 react-slick 生成的结构，消除所有可能白边 */
+.slideItem,
+.slick-slide {
   display: block;
   line-height: 0;
 }
 
-.slideImage {
+.slideImage,
+.slick-slide img {
   width: 100%;
   height: auto;
   display: block;
   margin: 0;
   padding: 0;
   border: none;
+  object-fit: cover;                /* 确保图片填满不留白 */
 }
 
-/* 美化轮播指示点 */
+/* 美化指示点 */
 .slick-dots {
-  bottom: 15px;                     /* 调整位置 */
+  bottom: 15px;
   z-index: 2;
 }
 
 .slick-dots li {
-  margin: 0 2px;
+  margin: 0 3px;
 }
 
 .slick-dots li button:before {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 1;
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: var(--ifm-color-primary);
-  opacity: 1;
+  color: var(--ifm-color-primary) !important;
+  opacity: 1 !important;
 }
 
 /* ===== 特色宣传区 ===== */
@@ -237,7 +241,7 @@
   .heroLogo {
     position: static;
     margin-bottom: 1rem;
-    height: 55px;               /* 小屏幕适当缩小 */
+    height: 50px;
   }
   .heroText {
     width: 100%;
