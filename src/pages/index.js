@@ -1,10 +1,7 @@
-//test 0.0.1
-import React from 'react';
+// test 0.0.2
+import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import styles from './index.module.css';
 
 /**
@@ -12,30 +9,6 @@ import styles from './index.module.css';
  * 包含：校徽横幅、宣传图轮播、特色宣传区、链接卡片
  */
 export default function Home() {
-  // 轮播配置
-  const sliderSettings = {
-    dots: true,                 // 显示指示点
-    infinite: true,             // 无限循环
-    speed: 800,                 // 切换速度 (ms)
-    slidesToShow: 1,            // 每次显示1张
-    slidesToScroll: 1,          // 每次滚动1张
-    autoplay: true,             // 自动播放
-    autoplaySpeed: 4000,        // 自动播放间隔 (ms)
-    pauseOnHover: true,         // 悬停暂停
-    arrows: true,               // 显示箭头
-    fade: true,                 // 淡入淡出效果
-    cssEase: 'ease-in-out',
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,        // 小屏幕隐藏箭头
-          dots: true,
-        },
-      },
-    ],
-  };
-
   // 宣传图数据（5张 2128x846）
   const banners = [
     { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1', link: '/news' },
@@ -44,6 +17,22 @@ export default function Home() {
     { id: 4, src: '/img/zdzx_zwy_t.jpg', alt: '校园风光 4', link: '/admissions' },
     { id: 5, src: '/img/zdzx_all_t.jpg', alt: '校园风光 5', link: '/campus-life' },
   ];
+
+  // 当前轮播索引
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 自动轮播
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+    }, 4000); // 4秒切换一次
+    return () => clearInterval(timer);
+  }, []);
+
+  // 手动切换到指定索引
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
 
   // 链接卡片数据
   const linkCards = [
@@ -116,23 +105,29 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>校园风采</h2>
           <p className={styles.sectionSubtitle}>感受魅力校园，见证精彩瞬间</p>
           <div className={styles.carouselWrapper}>
-            <Slider {...sliderSettings}>
-              {banners.map((item) => (
-                <div key={item.id} className={styles.slideItem}>
-                  <Link to={item.link} className={styles.slideLink}>
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className={styles.slideImage}
-                      loading="lazy"
-                    />
-                    <div className={styles.slideOverlay}>
-                      <span className={styles.slideLabel}>点击了解更多</span>
-                    </div>
-                  </Link>
-                </div>
+            {/* 当前显示的图片 */}
+            <Link to={banners[currentIndex].link} className={styles.slideLink}>
+              <img
+                src={banners[currentIndex].src}
+                alt={banners[currentIndex].alt}
+                className={styles.slideImage}
+                loading="lazy"
+              />
+              <div className={styles.slideOverlay}>
+                <span className={styles.slideLabel}>点击了解更多</span>
+              </div>
+            </Link>
+            {/* 指示点 */}
+            <div className={styles.dotsContainer}>
+              {banners.map((item, index) => (
+                <button
+                  key={item.id}
+                  className={index === currentIndex ? styles.dotActive : styles.dot}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`切换到第 ${index + 1} 张图片`}
+                />
               ))}
-            </Slider>
+            </div>
           </div>
         </div>
       </section>
