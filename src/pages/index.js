@@ -1,4 +1,4 @@
-// test 0.0.4
+// test 0.0.5
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,13 +15,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合图标，大一些 */}
+        {/* 左上角校徽组合，更大更靠边 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
           className={styles.heroLogo}
-          width="240"
-          height="66"
+          width="280"
+          height="77"
           loading="eager"
         />
         <div className={styles.heroText}>
@@ -38,7 +38,7 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  // 轮播配置（保留高级轮播效果）
+  // 轮播配置（高级版）
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -125,7 +125,7 @@ export default function Home() {
       <HomepageHeader />
 
       <main>
-        {/* ===== 宣传图轮播（无链接） ===== */}
+        {/* ===== 宣传图轮播 ===== */}
         <section className={styles.carouselSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>校园风采</h2>
