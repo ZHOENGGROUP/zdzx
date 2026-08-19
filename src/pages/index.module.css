@@ -1,10 +1,10 @@
 /* ===== 顶部 Hero 区域（左上角图标 + 居中文字） ===== */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;                /* 增加高度 */
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--ifm-color-primary-darker) 0%, var(--ifm-color-primary) 100%);
+  background-color: var(--ifm-color-primary);   /* 纯色，无渐变 */
 }
 
 .heroContainer {
@@ -12,13 +12,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  min-height: 200px;              /* 保证最小高度 */
 }
 
 .heroLogo {
   position: absolute;
-  left: 1rem;
-  top: 1rem;
-  height: 55px;
+  left: 1.5rem;
+  top: 1.5rem;                    /* 偏上 */
+  height: 66px;                   /* 控制高度，宽度自动 */
   width: auto;
   object-fit: contain;
 }
@@ -28,14 +29,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.heroTitle {
-  /* 使用 Docusaurus 默认类，无需额外样式 */
-}
-
-.heroSubtitle {
-  /* 使用 Docusaurus 默认类，无需额外样式 */
+  margin-top: 2rem;               /* 给 Logo 留出空间 */
 }
 
 /* ===== 轮播区域 ===== */
@@ -71,9 +65,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.slideLink {
-  display: block;
-  text-decoration: none;
+.slideItem {
+  /* 可选：如果需要固定高度可以设置 */
 }
 
 .slideImage {
@@ -82,21 +75,7 @@
   display: block;
 }
 
-.slideOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-  padding: 20px;
-  text-align: center;
-}
-
-.slideLabel {
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
+/* 注意：已删除 slideOverlay 和 slideLabel 样式，因为不再使用 */
 
 /* ===== 特色宣传区 ===== */
 .featureCard {
@@ -231,9 +210,11 @@
   .heroLogo {
     position: static;
     margin-bottom: 1rem;
+    height: 50px;               /* 小屏幕适当缩小 */
   }
   .heroText {
     width: 100%;
+    margin-top: 0;
   }
   .featureCard {
     flex-direction: column;
