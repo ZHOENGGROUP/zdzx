@@ -133,6 +133,17 @@ const config = {
             position: 'left',
             label: '活动中心',
           },
+          {
+            type: 'dropdown',
+            label: '更多',
+            position: 'left',
+            items: [
+              { to: '/‌docs/campus', label: '校园中心' },
+              { to: '/docs/technology', label: '科技中心' },
+              { to: '/docs/contest', label: '竞赛中心' },
+              { to: '/docs/alumni', label: '校友中心' },
+            ],
+          },
           { to: '/blog', label: '记录', position: 'left' },
           
           // ==================== 右侧菜单 ====================
@@ -184,6 +195,24 @@ const config = {
             ],
           },
           {
+            title: '内容',
+            items: [
+              { label: '帮助中心', to: '/docs/help' },
+              { label: '新闻中心', to: '/docs/news' },
+              { label: '文章中心', to: '/docs/article' },
+              { label: '活动中心', to: '/docs/activity' },
+            ],
+          },
+          {
+            title: '更多',
+            items: [
+              { label: '校园中心', to: '/docs/campus' },
+              { label: '科技中心', to: '/docs/technology' },
+              { label: '竞赛中心', to: '/docs/contest' },
+              { label: '校友中心', to: '/docs/alumni' },
+            ],
+          },
+          {
             title: '页面',
             items: [
               { label: '关于', to: '/about' },
@@ -202,7 +231,7 @@ const config = {
             ],
           },
           {
-            title: '更多',
+            title: '链接',
             items: [
               { label: 'GitHub', href: 'https://github.com/ZHOENGGROUP/zdzx' },
               { label: 'ZZAAC.CC', href: 'https://zzaac.cc/' },
