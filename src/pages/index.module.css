@@ -1,10 +1,10 @@
-/* ===== 顶部 Hero 区域（左上角图标 + 居中文字） ===== */
+/* ===== 顶部 Hero 区域 ===== */
 .heroBanner {
-  padding: 6rem 0;                /* 增加高度 */
+  padding: 3.5rem 0;                /* 降低高度 */
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-color-primary);   /* 纯色，无渐变 */
+  background-color: var(--ifm-color-primary);   /* 纯色 */
 }
 
 .heroContainer {
@@ -12,14 +12,15 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 200px;              /* 保证最小高度 */
+  min-height: 170px;                /* 适当减小 */
 }
 
+/* 左上角校徽组合，更靠边、更大 */
 .heroLogo {
   position: absolute;
-  left: 1.5rem;
-  top: 1.5rem;                    /* 偏上 */
-  height: 66px;                   /* 控制高度，宽度自动 */
+  left: 0.8rem;                    /* 更靠左 */
+  top: 0.8rem;                     /* 更靠上 */
+  height: 77px;
   width: auto;
   object-fit: contain;
 }
@@ -29,7 +30,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;               /* 给 Logo 留出空间 */
+  margin-top: 3rem;                /* 为 Logo 留出空间 */
+  padding: 0 1rem;
 }
 
 /* ===== 轮播区域 ===== */
@@ -63,19 +65,44 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--ifm-background-color); /* 防止白带 */
 }
 
 .slideItem {
-  /* 可选：如果需要固定高度可以设置 */
+  /* 确保图片占满容器，无白边 */
+  display: block;
+  line-height: 0;
 }
 
 .slideImage {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-/* 注意：已删除 slideOverlay 和 slideLabel 样式，因为不再使用 */
+/* 美化轮播指示点 */
+.slick-dots {
+  bottom: 15px;                     /* 调整位置 */
+  z-index: 2;
+}
+
+.slick-dots li {
+  margin: 0 2px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
 
 /* ===== 特色宣传区 ===== */
 .featureCard {
@@ -210,7 +237,7 @@
   .heroLogo {
     position: static;
     margin-bottom: 1rem;
-    height: 50px;               /* 小屏幕适当缩小 */
+    height: 55px;               /* 小屏幕适当缩小 */
   }
   .heroText {
     width: 100%;
