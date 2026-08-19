@@ -1,4 +1,4 @@
-// test 0.0.3
+// test 0.0.4
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
@@ -15,13 +15,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 左上角校徽组合 */}
+        {/* 左上角校徽组合图标，大一些 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
           className={styles.heroLogo}
-          width="200"
-          height="55"
+          width="240"
+          height="66"
           loading="eager"
         />
         <div className={styles.heroText}>
@@ -38,7 +38,7 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  // 轮播配置（高级版）
+  // 轮播配置（保留高级轮播效果）
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -64,11 +64,11 @@ export default function Home() {
 
   // 宣传图数据（5张 2128x846）
   const banners = [
-    { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1', link: '/news' },
-    { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '校园风光 2', link: '/about' },
-    { id: 3, src: '/img/zdzx_xtl_t.jpg', alt: '校园风光 3', link: '/academics' },
-    { id: 4, src: '/img/zdzx_zwy_t.jpg', alt: '校园风光 4', link: '/admissions' },
-    { id: 5, src: '/img/zdzx_all_t.jpg', alt: '校园风光 5', link: '/campus-life' },
+    { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校园风光 1' },
+    { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '校园风光 2' },
+    { id: 3, src: '/img/zdzx_xtl_t.jpg', alt: '校园风光 3' },
+    { id: 4, src: '/img/zdzx_zwy_t.jpg', alt: '校园风光 4' },
+    { id: 5, src: '/img/zdzx_all_t.jpg', alt: '校园风光 5' },
   ];
 
   // 链接卡片数据
@@ -125,7 +125,7 @@ export default function Home() {
       <HomepageHeader />
 
       <main>
-        {/* ===== 宣传图轮播 ===== */}
+        {/* ===== 宣传图轮播（无链接） ===== */}
         <section className={styles.carouselSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionTitle}>校园风采</h2>
@@ -134,17 +134,12 @@ export default function Home() {
               <Slider {...sliderSettings}>
                 {banners.map((item) => (
                   <div key={item.id} className={styles.slideItem}>
-                    <Link to={item.link} className={styles.slideLink}>
-                      <img
-                        src={item.src}
-                        alt={item.alt}
-                        className={styles.slideImage}
-                        loading="lazy"
-                      />
-                      <div className={styles.slideOverlay}>
-                        <span className={styles.slideLabel}>点击了解更多</span>
-                      </div>
-                    </Link>
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className={styles.slideImage}
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </Slider>
