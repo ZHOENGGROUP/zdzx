@@ -138,7 +138,7 @@ const config = {
             label: '更多',
             position: 'left',
             items: [
-              { to: '/‌docs/campus', label: '校园中心' },
+              { to: '/docs/campus', label: '校园中心' },
               { to: '/docs/technology', label: '科技中心' },
               { to: '/docs/contest', label: '竞赛中心' },
               { to: '/docs/alumni', label: '校友中心' },
