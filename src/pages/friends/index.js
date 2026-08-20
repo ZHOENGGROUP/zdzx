@@ -1,6 +1,7 @@
 // src/pages/friends/index.js
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import friendGroups from '@site/src/data/friends';
 import styles from './styles.module.css';
 
