@@ -77,7 +77,7 @@ export default function Home() {
     { id: 2, title: '新闻中心', desc: '官方动态、校园新闻与媒体报道', icon: '📰', link: '/docs/news' },
     { id: 3, title: '文章中心', desc: '学术成果、论文专著与创新博客', icon: '📝', link: '/docs/article' },
     { id: 4, title: '活动中心', desc: '社团风采、文体赛事与校园节日', icon: '🎉', link: '/docs/activity' },
-    { id: 5, title: '校园中心', desc: '学校概况、校园资源与文化氛围', icon: '🏫', link: '/‌docs/campus' },
+    { id: 5, title: '校园中心', desc: '学校概况、校园资源与文化氛围', icon: '🏫', link: '/docs/campus' },
     { id: 6, title: '科技中心', desc: '科技创新、实验平台与技术前沿', icon: '💻', link: '/docs/technology' },
     { id: 7, title: '竞赛中心', desc: '竞赛规则、学习平台与奖项荣誉', icon: '🏆', link: '/docs/contest' },
     { id: 8, title: '校友中心', desc: '校友风采、联络活动与捐赠支持', icon: '🎓', link: '/docs/alumni' },
