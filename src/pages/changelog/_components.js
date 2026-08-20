@@ -39,7 +39,7 @@ export function Changelog() {
               <ul>
                 {items.map((item, index) => (
                   <li key={`${item.date}-${item.type}-${index}`}>
-                    <strong>{TYPE_LABEL[item.type] || '更新'}</strong>{' '}
+                    <strong>【{TYPE_LABEL[item.type] || '更新'}】</strong>{' '}
                     <span dangerouslySetInnerHTML={{ __html: item.content }} />
                   </li>
                 ))}
