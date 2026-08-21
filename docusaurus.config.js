@@ -94,9 +94,9 @@ const config = {
       // ==================== Algolia 搜索配置 ====================
       algolia: {
         // 替换为你的真实值（申请方式见后文）
-        appId: 'YOUR_APP_ID',
-        apiKey: 'YOUR_SEARCH_API_KEY',   // 注意：这是 Search-Only API Key
-        indexName: 'YOUR_INDEX_NAME',
+        appId: 'XWPSVWK6LB',
+        apiKey: 'bc500fbd8ea69e7d30b94a1ef9849b2f',   // 注意：这是 Search-Only API Key
+        indexName: 'TODO',
         contextualSearch: true,
         // 可选：搜索参数
         searchParameters: {},
