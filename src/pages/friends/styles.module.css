@@ -5,8 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;              /* 增大与下方内容距离 */
-  padding-bottom: 2rem;             /* 增大与分割线距离 */
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -49,7 +49,7 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.25rem;          /* 申请按钮与统计框之间的距离调大 */
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -83,17 +83,17 @@
   gap: 0.75rem;
 }
 
-/* 统计框：大小明显增大，添加立体阴影 */
+/* 统计框：宽度稍微加大，内容略偏左 */
 .statBox {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 2rem;              /* 增大内边距 */
+  gap: 0.9rem;               /* 图标与文字距离稍增 */
+  padding: 1.5rem 1.5rem 1.5rem 2rem;  /* 左内边距稍大，使内容偏左 */
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
   background: transparent;
-  min-width: 170px;                  /* 最小宽度增大 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);   /* 立体阴影 */
+  min-width: 190px;           /* 宽度稍微调大 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* 图标容器：去掉边框，底色变浅 */
@@ -102,16 +102,16 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  background-color: var(--ifm-color-emphasis-100); /* 浅底色 */
-  border: none;                     /* 去掉边框 */
+  background-color: var(--ifm-color-emphasis-100);
+  border: none;
   border-radius: 6px;
   line-height: 1;
 }
 
 .statIcon svg {
-  color: var(--ifm-color-emphasis-600);   /* 图标颜色改为灰色 */
-  width: 22px;
-  height: 22px;
+  color: var(--ifm-color-emphasis-600);
+  width: 20px;               /* 图标稍微调小，但仍比最初大 */
+  height: 20px;
   display: block;
 }
 
@@ -123,13 +123,13 @@
 }
 
 .statNumber {
-  font-size: 2rem;                 /* 数字明显放大 */
+  font-size: 1.75rem;        /* 数字稍微调小，但仍大于初始 */
   font-weight: 700;
   color: var(--ifm-color-primary);
 }
 
 .statLabel {
-  font-size: 1rem;                 /* 汉字也放大，但小于数字 */
+  font-size: 0.9rem;         /* 汉字稍微调小，但仍大于初始 */
   color: var(--ifm-color-emphasis-700);
   text-transform: uppercase;
   letter-spacing: 0.05em;
