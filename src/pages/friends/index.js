@@ -42,20 +42,24 @@ export default function Friends() {
               href="mailto:your-email@example.com?subject=申请友链&body=标题：%0A描述：%0A链接：%0A头像："
               className={styles.requestButton}
             >
-              <Icon icon="lucide:link-2" width={16} height={16} />
+              <Icon icon="lucide:link-2" width={14} height={14} />
               申请友链
             </a>
             {/* 统计框 */}
             <div className={styles.stats}>
               <div className={styles.statBox}>
-                <Icon icon="lucide:folder" width={16} height={16} />
+                <span className={styles.statIcon}>
+                  <Icon icon="lucide:folder" width={16} height={16} />
+                </span>
                 <div className={styles.statText}>
                   <span className={styles.statNumber}>{friendGroups.length}</span>
                   <span className={styles.statLabel}>分类</span>
                 </div>
               </div>
               <div className={styles.statBox}>
-                <Icon icon="lucide:users" width={16} height={16} />
+                <span className={styles.statIcon}>
+                  <Icon icon="lucide:users" width={16} height={16} />
+                </span>
                 <div className={styles.statText}>
                   <span className={styles.statNumber}>{totalFriends}</span>
                   <span className={styles.statLabel}>友链</span>
