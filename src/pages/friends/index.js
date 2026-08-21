@@ -37,7 +37,7 @@ export default function Friends() {
             </p>
           </div>
           <div className={styles.headerRight}>
-            {/* 申请友链按钮（无背景，圆角，加粗） */}
+            {/* 申请友链按钮 */}
             <a
               href="mailto:your-email@example.com?subject=申请友链&body=标题：%0A描述：%0A链接：%0A头像："
               className={styles.requestButton}
@@ -49,7 +49,7 @@ export default function Friends() {
             <div className={styles.stats}>
               <div className={styles.statBox}>
                 <span className={styles.statIcon}>
-                  <Icon icon="lucide:folder" width={16} height={16} />
+                  <Icon icon="lucide:folder" width={22} height={22} />
                 </span>
                 <div className={styles.statText}>
                   <span className={styles.statNumber}>{friendGroups.length}</span>
@@ -58,7 +58,7 @@ export default function Friends() {
               </div>
               <div className={styles.statBox}>
                 <span className={styles.statIcon}>
-                  <Icon icon="lucide:users" width={16} height={16} />
+                  <Icon icon="lucide:users" width={22} height={22} />
                 </span>
                 <div className={styles.statText}>
                   <span className={styles.statNumber}>{totalFriends}</span>
@@ -89,11 +89,9 @@ export default function Friends() {
                 >
                   <div className={styles.card}>
                     <div className={styles.avatarWrapper}>
-                      {/* 占位图标（始终显示，图片加载失败后保持可见） */}
                       <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(friend.avatarShape)}`}>
                         <Icon icon="lucide:user" width={24} height={24} />
                       </div>
-                      {/* 头像图片（如果有 avatar 才渲染） */}
                       {friend.avatar && (
                         <img
                           src={friend.avatar}
