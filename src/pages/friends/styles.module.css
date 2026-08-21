@@ -5,8 +5,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;              /* 增大与下方内容距离 */
+  padding-bottom: 2rem;             /* 增大与分割线距离 */
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -49,12 +49,12 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: 0.75rem;           /* 适当缩小整体间距 */
+  gap: 0.75rem;
   flex-shrink: 0;
   flex-wrap: wrap;
 }
 
-/* 申请按钮：无背景，字体加粗，圆角，整体缩小 */
+/* 申请按钮：无背景，字体加粗，圆角，整体稍小 */
 .requestButton {
   display: inline-flex;
   align-items: center;
@@ -83,34 +83,35 @@
   gap: 0.75rem;
 }
 
-/* 统计框：更大，文字大小保持不变 */
+/* 统计框：大小明显增大，添加立体阴影 */
 .statBox {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.25rem 1.75rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 1.5rem 2rem;              /* 增大内边距 */
+  border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
   background: transparent;
-  min-width: 150px;
+  min-width: 170px;                  /* 最小宽度增大 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);   /* 立体阴影 */
 }
 
-/* 图标容器：类似代码框效果 */
+/* 图标容器：去掉边框，底色变浅 */
 .statIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.35rem;
-  background-color: var(--ifm-color-emphasis-200);
-  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 0.5rem;
+  background-color: var(--ifm-color-emphasis-100); /* 浅底色 */
+  border: none;                     /* 去掉边框 */
   border-radius: 6px;
   line-height: 1;
 }
 
 .statIcon svg {
-  color: var(--ifm-color-primary);
-  width: 16px;
-  height: 16px;
+  color: var(--ifm-color-emphasis-600);   /* 图标颜色改为灰色 */
+  width: 22px;
+  height: 22px;
   display: block;
 }
 
@@ -122,13 +123,13 @@
 }
 
 .statNumber {
-  font-size: 1.25rem;        /* 保持文字当前大小 */
+  font-size: 2rem;                 /* 数字明显放大 */
   font-weight: 700;
   color: var(--ifm-color-primary);
 }
 
 .statLabel {
-  font-size: 0.75rem;        /* 保持标签当前大小 */
+  font-size: 1rem;                 /* 汉字也放大，但小于数字 */
   color: var(--ifm-color-emphasis-700);
   text-transform: uppercase;
   letter-spacing: 0.05em;
