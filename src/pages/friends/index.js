@@ -8,6 +8,19 @@ import styles from './styles.module.css';
 
 const totalFriends = friendGroups.reduce((acc, group) => acc + group.friends.length, 0);
 
+// 根据 avatarShape 返回对应的 CSS 类名
+const getAvatarShapeClass = (shape) => {
+  switch (shape) {
+    case 'square':
+      return styles.squareAvatar;
+    case 'original':
+      return styles.originalAvatar;
+    case 'circle':
+    default:
+      return styles.circleAvatar;
+  }
+};
+
 export default function Friends() {
   return (
     <Layout title="友链" description="友情链接">
@@ -16,23 +29,15 @@ export default function Friends() {
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <h1 className={styles.title}>
-              网站<b>友链</b>
+              <span className={styles.titleBlack}>网站</span>
+              <span className={styles.titleBlue}>友链</span>
             </h1>
             <p className={styles.description}>
               <Link to="/">河北正定中学 · 线上活动中心</Link>的友情链接
             </p>
-            <div className={styles.stats}>
-              <div className={styles.statItem}>
-                <span className={styles.statNumber}>{friendGroups.length}</span>
-                <span className={styles.statLabel}>分类</span>
-              </div>
-              <div className={styles.statItem}>
-                <span className={styles.statNumber}>{totalFriends}</span>
-                <span className={styles.statLabel}>友链</span>
-              </div>
-            </div>
           </div>
           <div className={styles.headerRight}>
+            {/* 申请友链按钮（无背景，圆角，加粗） */}
             <a
               href="mailto:your-email@example.com?subject=申请友链&body=标题：%0A描述：%0A链接：%0A头像："
               className={styles.requestButton}
@@ -40,6 +45,23 @@ export default function Friends() {
               <Icon icon="lucide:link-2" width={16} height={16} />
               申请友链
             </a>
+            {/* 统计框 */}
+            <div className={styles.stats}>
+              <div className={styles.statBox}>
+                <Icon icon="lucide:folder" width={16} height={16} />
+                <div className={styles.statText}>
+                  <span className={styles.statNumber}>{friendGroups.length}</span>
+                  <span className={styles.statLabel}>分类</span>
+                </div>
+              </div>
+              <div className={styles.statBox}>
+                <Icon icon="lucide:users" width={16} height={16} />
+                <div className={styles.statText}>
+                  <span className={styles.statNumber}>{totalFriends}</span>
+                  <span className={styles.statLabel}>友链</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -63,8 +85,8 @@ export default function Friends() {
                 >
                   <div className={styles.card}>
                     <div className={styles.avatarWrapper}>
-                      {/* 占位图标（始终显示，当图片加载成功后被覆盖） */}
-                      <div className={styles.avatarPlaceholder}>
+                      {/* 占位图标（始终显示，图片加载失败后保持可见） */}
+                      <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(friend.avatarShape)}`}>
                         <Icon icon="lucide:user" width={24} height={24} />
                       </div>
                       {/* 头像图片（如果有 avatar 才渲染） */}
@@ -72,9 +94,8 @@ export default function Friends() {
                         <img
                           src={friend.avatar}
                           alt={friend.title}
-                          className={styles.avatar}
+                          className={`${styles.avatar} ${getAvatarShapeClass(friend.avatarShape)}`}
                           onError={(e) => {
-                            // 图片加载失败时隐藏 img，占位图标会自动显示
                             e.target.style.display = 'none';
                           }}
                         />
