@@ -34,7 +34,7 @@
 
 .description {
   font-size: 1.1rem;
-  color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-emphasis-700); /* 加深灰色 */
   margin-bottom: 0;
 }
 
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
 }
 
-/* 申请按钮：无背景色，更圆滑，字体加粗 */
+/* 申请按钮：无背景，字体加粗，圆角 */
 .requestButton {
   display: inline-flex;
   align-items: center;
@@ -83,20 +83,22 @@
   gap: 0.75rem;
 }
 
-/* 单个统计框 */
+/* 单个统计框：明显大于申请按钮 */
 .statBox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
-  min-width: 90px;
+  min-width: 130px;      /* 加宽 */
 }
 
 .statBox svg {
   color: var(--ifm-color-primary);
+  width: 28px !important;   /* 覆盖组件内联尺寸，放大图标 */
+  height: 28px !important;
   flex-shrink: 0;
 }
 
@@ -108,14 +110,14 @@
 }
 
 .statNumber {
-  font-size: 1.25rem;
+  font-size: 1.75rem;   /* 放大数字 */
   font-weight: 700;
   color: var(--ifm-color-primary);
 }
 
 .statLabel {
-  font-size: 0.7rem;
-  color: var(--ifm-color-emphasis-500);
+  font-size: 0.85rem;   /* 标签稍大 */
+  color: var(--ifm-color-emphasis-700); /* 加深灰色 */
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -138,7 +140,7 @@
 
 .groupDescription {
   font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700); /* 加深灰色 */
   margin: 0;
 }
 
@@ -154,22 +156,24 @@
   color: inherit;
 }
 
+/* 友链卡片：无背景色，带阴影立体感 */
 .card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 1.25rem 1.5rem;
-  background-color: var(--ifm-color-emphasis-100);  /* 灰色加深 */
+  background-color: transparent;      /* 与页面背景一致 */
   border-radius: 8px;
   border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
   height: 100%;
-  min-height: 90px;  /* 高度稍高 */
+  min-height: 90px;
 }
 
 .card:hover {
   border-color: var(--ifm-color-primary);
-  box-shadow: var(--ifm-global-shadow-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
 
@@ -235,7 +239,7 @@
 
 .cardDescription {
   font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700); /* 加深灰色 */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -262,6 +266,9 @@
   .stats {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  .statBox {
+    width: 100%;
   }
   .title {
     font-size: 2.2rem;
