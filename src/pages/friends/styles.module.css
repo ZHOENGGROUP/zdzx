@@ -49,7 +49,7 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: 1.25rem;          /* 申请按钮与统计框之间的距离调大 */
+  gap: 1.25rem;
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -83,34 +83,36 @@
   gap: 0.75rem;
 }
 
-/* 统计框：宽度稍微加大，内容略偏左 */
+/* 统计框：宽度稍微加大，内容整体左移 */
 .statBox {
   display: flex;
   align-items: center;
-  gap: 0.9rem;               /* 图标与文字距离稍增 */
-  padding: 1.5rem 1.5rem 1.5rem 2rem;  /* 左内边距稍大，使内容偏左 */
+  gap: 0.9rem;
+  padding: 1.5rem 2rem 1.5rem 1.5rem;  /* 左内边距减小，使图标更靠左 */
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
   background: transparent;
-  min-width: 190px;           /* 宽度稍微调大 */
+  min-width: 190px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* 图标容器：去掉边框，底色变浅 */
+/* 图标容器：固定尺寸占位，无边框，底色变浅 */
 .statIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  width: 2.5rem;                  /* 固定宽度，防止图标未加载时布局抖动 */
+  height: 2.5rem;                 /* 固定高度 */
   background-color: var(--ifm-color-emphasis-100);
   border: none;
   border-radius: 6px;
   line-height: 1;
+  flex-shrink: 0;                 /* 防止被压缩 */
 }
 
 .statIcon svg {
   color: var(--ifm-color-emphasis-600);
-  width: 20px;               /* 图标稍微调小，但仍比最初大 */
+  width: 20px;
   height: 20px;
   display: block;
 }
@@ -123,13 +125,13 @@
 }
 
 .statNumber {
-  font-size: 1.75rem;        /* 数字稍微调小，但仍大于初始 */
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--ifm-color-primary);
 }
 
 .statLabel {
-  font-size: 0.9rem;         /* 汉字稍微调小，但仍大于初始 */
+  font-size: 0.9rem;
   color: var(--ifm-color-emphasis-700);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -297,4 +299,4 @@
   .title {
     font-size: 2.2rem;
   }
-}
+  }
