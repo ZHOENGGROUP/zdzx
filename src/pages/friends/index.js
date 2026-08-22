@@ -15,6 +15,8 @@ const getAvatarShapeClass = (shape) => {
       return styles.squareAvatar;
     case 'original':
       return styles.originalAvatar;
+    case 'rounded-square':
+      return styles.roundedSquareAvatar;
     case 'circle':
     default:
       return styles.circleAvatar;
@@ -89,9 +91,11 @@ export default function Friends() {
                 >
                   <div className={styles.card}>
                     <div className={styles.avatarWrapper}>
+                      {/* 占位图标（始终显示，图片加载失败后保持可见） */}
                       <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(friend.avatarShape)}`}>
                         <Icon icon="lucide:user" width={24} height={24} />
                       </div>
+                      {/* 头像图片（如果有 avatar 才渲染） */}
                       {friend.avatar && (
                         <img
                           src={friend.avatar}
