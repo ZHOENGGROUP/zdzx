@@ -8,7 +8,7 @@
 /* 顶部欢迎语 */
 .welcomeSection {
   text-align: center;
-  margin: 2rem 0 1rem;
+  margin: 3rem 0 2.5rem;       /* 增加上下距离 */
   width: 100%;
 }
 
@@ -31,9 +31,9 @@
   display: inline-block;
 }
 
-/* 内容区：最大宽度 650px */
+/* 内容区：最大宽度 680px */
 .content {
-  max-width: 650px;
+  max-width: 680px;
   width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
@@ -148,9 +148,10 @@
   height: 40px;
   object-fit: cover;
   background-color: var(--ifm-color-emphasis-100);
+  border-radius: 50%;              /* 强制圆形，与 shape 无关，确保图片是圆形 */
 }
 
-/* 形状类 */
+/* 形状类（备用，但图片已强制圆形） */
 .circle {
   border-radius: 50%;
 }
