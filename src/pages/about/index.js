@@ -37,10 +37,10 @@ export default function About() {
         <main className={styles.content}>
           <h2 className={styles.title}>关于我们</h2>
           <p className={styles.paragraph}>
-            这里是关于我们的介绍文字。你可以编辑此部分，加入学校的介绍、历史、办学理念等内容。
+            河北正定中学肇始于1902年，坐落于国家历史文化名城正定，是一所享誉燕赵的百年名校。学校秉承“明德、笃学、强身、报国”校训，以严谨教风和深厚底蕴著称，连续多年高考成绩卓著，堪称国内基础教育界的典范。
           </p>
           <p className={styles.paragraph}>
-            我们致力于提供丰富的线上活动与帮助资源，欢迎访问我们的网站和友链。
+            校园内古柏参天，文脉悠长，与现代教学设施交相辉映。学校注重学生全面发展，既传袭国学精粹，又力倡创新实践。数千学子在此砺志修身，每年大批毕业生升入顶尖高校，其育人成果广受社会赞誉，实为莘莘学子向往之求学圣地。
           </p>
 
           {/* 图片（宽度与内容区对齐） */}
@@ -50,6 +50,13 @@ export default function About() {
             className={styles.fullWidthImage}
             loading="lazy"
           />
+
+          <h2 className={styles.title}>网站简介</h2>
+          <p className={styles.paragraph}>
+            河北正定中学 · 线上活动中心，由中政集团 · 中政科技承建，于 2026 年 8 月正式设立。其前身为“中政集团 · 河北正定中学办事处”（2026.4-2026.8）。
+          <p className={styles.paragraph}>
+            河北正定中学 · 线上活动中心，旨在为广大学子构筑丰盈而多彩的网络成长空间，融学术思辨于云端对话，助科技创新在交互中迸发，并致力打造开放共享、协同共进的智慧资源平台，让每一次线上相聚都成为青春与未来的深刻链接。
+          </p>
 
           {/* 链接卡片区 */}
           <div className={styles.cardsGrid}>
