@@ -68,9 +68,7 @@ export default function About() {
                   </div>
                   <div className={styles.cardRight}>
                     {card.type === 'icon' ? (
-                      <span className={styles.iconContainer}>
-                        <Icon icon={card.icon} className={styles.whiteIcon} width={18} height={18} />
-                      </span>
+                      <Icon icon={card.icon} className={styles.iconBlack} width={24} height={24} />
                     ) : (
                       <img
                         src={card.src}
