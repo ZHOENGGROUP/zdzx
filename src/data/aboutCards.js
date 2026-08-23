@@ -12,24 +12,24 @@ const aboutCards = [
     description: '中政集团官网',
     link: 'https://www.zhoeng.com.cn/',
     type: 'icon',
-    icon: 'mdi:office-building',            // 大楼图标
-    shape: 'rounded-square',
+    icon: 'lucide:building-2',              // Lucide 图标：大楼
+    shape: 'circle',                         // 形状统一为圆形，与图片一致
   },
   {
     title: 'GitHub',
     description: '代码托管与开源社区',
     link: 'https://github.com/ZHOENGGROUP/zdzx',
     type: 'icon',
-    icon: 'mdi:github',                      // 与顶部栏风格统一
-    shape: 'original',
+    icon: 'lucide:github',                   // Lucide 图标：GitHub
+    shape: 'circle',
   },
   {
     title: '帮助中心',
     description: '使用文档与常见问题',
     link: '/docs/help',
     type: 'icon',
-    icon: 'mdi:book-open-page-variant',      // 打开的书图标
-    shape: 'square',
+    icon: 'lucide:book-open',                // Lucide 图标：打开的书
+    shape: 'circle',
   },
 ];
 
