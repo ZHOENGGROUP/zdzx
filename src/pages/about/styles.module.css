@@ -13,13 +13,13 @@
 }
 
 .welcomeTitle {
-  font-size: 2.2rem;               /* 整体调小 */
+  font-size: 1.8rem;               /* 进一步调小 */
   font-weight: bold;
   line-height: 1.3;
 }
 
 .emoji {
-  color: initial;                   /* 保持 emoji 本色 */
+  color: initial;
   font-style: normal;
 }
 
@@ -31,9 +31,9 @@
   display: inline-block;
 }
 
-/* 内容区：宽度 620px，左右留白较大 */
+/* 内容区：宽度 600px，左右留白稍微减小 */
 .content {
-  max-width: 620px;
+  max-width: 600px;
   width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
@@ -41,7 +41,7 @@
 
 /* 标题：加粗居左，字号调小 */
 .title {
-  font-size: 1.8rem;               /* 原来是 2rem，调小 */
+  font-size: 1.6rem;               /* 从 1.8rem 调小 */
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: left;
@@ -88,7 +88,7 @@
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
   background-color: var(--ifm-card-background-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);   /* 立体阴影 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: border-color 0.2s ease;
   height: 100%;
 }
@@ -115,7 +115,7 @@
 .cardTitle {
   font-weight: 600;
   font-size: 1rem;
-  color: black;                    /* 标题黑色 */
+  color: black;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -123,7 +123,7 @@
 
 .cardDescription {
   font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-600); /* 描述灰色 */
+  color: var(--ifm-color-emphasis-600);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -198,7 +198,7 @@
     grid-template-columns: 1fr;
   }
   .welcomeTitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .content {
     padding: 0 0.75rem;
