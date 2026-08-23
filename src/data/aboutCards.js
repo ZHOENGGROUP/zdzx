@@ -12,7 +12,7 @@ const aboutCards = [
     description: '中政集团官网',
     link: 'https://www.zhoeng.com.cn/',
     type: 'icon',
-    icon: 'mdi:office-building',            // 更换为 mdi 图标
+    icon: 'mdi:office-building',            // 大楼图标
     shape: 'rounded-square',
   },
   {
@@ -28,7 +28,7 @@ const aboutCards = [
     description: '使用文档与常见问题',
     link: '/docs/help',
     type: 'icon',
-    icon: 'mdi:help-circle',                 // 更换为 mdi 图标
+    icon: 'mdi:book-open-page-variant',      // 打开的书图标
     shape: 'square',
   },
 ];
