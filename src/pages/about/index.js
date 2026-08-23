@@ -54,6 +54,7 @@ export default function About() {
           <h2 className={styles.title}>网站简介</h2>
           <p className={styles.paragraph}>
             河北正定中学 · 线上活动中心，由中政集团 · 中政科技承建，于 2026 年 8 月正式设立。其前身为“中政集团 · 河北正定中学办事处”（2026.4-2026.8）。
+          </p>
           <p className={styles.paragraph}>
             河北正定中学 · 线上活动中心，旨在为广大学子构筑丰盈而多彩的网络成长空间，融学术思辨于云端对话，助科技创新在交互中迸发，并致力打造开放共享、协同共进的智慧资源平台，让每一次线上相聚都成为青春与未来的深刻链接。
           </p>
