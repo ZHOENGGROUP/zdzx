@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
 import aboutCards from '@site/src/data/aboutCards';
 import Giscus from '@site/src/components/Giscus';
@@ -25,12 +24,16 @@ export default function About() {
   return (
     <Layout title="关于" description="关于我们">
       <div className={styles.pageWrapper}>
-        {/* 顶部炫彩欢迎语 */}
+        {/* 顶部欢迎语：emoji 保持本色，文字渐变 */}
         <div className={styles.welcomeSection}>
-          <h1 className={styles.gradientText}>🎉 Welcome to Zhengzhong 🥳</h1>
+          <h1 className={styles.welcomeTitle}>
+            <span className={styles.emoji}>🎉</span>{' '}
+            <span className={styles.gradientText}>Welcome to Zhengzhong</span>{' '}
+            <span className={styles.emoji}>🥳</span>
+          </h1>
         </div>
 
-        {/* 主内容区（左右留白较大） */}
+        {/* 主内容区 */}
         <main className={styles.content}>
           <h2 className={styles.title}>关于我们</h2>
           <p className={styles.paragraph}>
@@ -40,10 +43,10 @@ export default function About() {
             我们致力于提供丰富的线上活动与帮助资源，欢迎访问我们的网站和友链。
           </p>
 
-          {/* 图片示例（宽度与内容区对齐） */}
+          {/* 图片（宽度与内容区对齐） */}
           <img
-            src="/img/zdzx_kql.jpg"
-            alt="校园风光"
+            src="/img/zdzx_c.png"
+            alt="校徽校名组合"
             className={styles.fullWidthImage}
             loading="lazy"
           />
@@ -65,7 +68,9 @@ export default function About() {
                   </div>
                   <div className={styles.cardRight}>
                     {card.type === 'icon' ? (
-                      <Icon icon={card.icon} className={styles.iconBlack} width={28} height={28} />
+                      <span className={styles.iconContainer}>
+                        <Icon icon={card.icon} className={styles.whiteIcon} width={18} height={18} />
+                      </span>
                     ) : (
                       <img
                         src={card.src}
