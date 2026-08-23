@@ -13,7 +13,7 @@
 }
 
 .welcomeTitle {
-  font-size: 1.8rem;               /* 进一步调小 */
+  font-size: 1.8rem;
   font-weight: bold;
   line-height: 1.3;
 }
@@ -31,17 +31,17 @@
   display: inline-block;
 }
 
-/* 内容区：宽度 600px，左右留白稍微减小 */
+/* 内容区：最大宽度 650px */
 .content {
-  max-width: 600px;
+  max-width: 650px;
   width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
 }
 
-/* 标题：加粗居左，字号调小 */
+/* 标题：加粗居左，字号适中 */
 .title {
-  font-size: 1.6rem;               /* 从 1.8rem 调小 */
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: left;
@@ -137,20 +137,9 @@
   justify-content: center;
 }
 
-/* 黑底白形图标容器 */
-.iconContainer {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  border-radius: 50%;
-  padding: 6px;
-  width: 32px;
-  height: 32px;
-}
-
-.whiteIcon {
-  color: #fff;
+/* 图标黑色，无背景 */
+.iconBlack {
+  color: black;
 }
 
 /* 卡片图片 */
