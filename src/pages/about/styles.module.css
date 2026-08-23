@@ -1,0 +1,179 @@
+/* ===== 页面整体 ===== */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 炫彩欢迎语 */
+.welcomeSection {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  width: 100%;
+}
+
+.gradientText {
+  font-size: 2.8rem;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #00c6ff, #0072ff, #a855f7, #ec4899, #ef4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* 内容区：宽度较窄，左右留白大 */
+.content {
+  max-width: 600px;       /* 比更新日志的 650px 更小，空白更大 */
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+/* 标题：加粗居左 */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: var(--ifm-heading-color);
+}
+
+/* 正文 */
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1.2rem;
+}
+
+/* 全宽图片 */
+.fullWidthImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0 2rem;
+  display: block;
+}
+
+/* 卡片网格：两列 */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* 卡片链接 */
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 单个卡片 */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background-color: var(--ifm-card-background-color);
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-2px);
+}
+
+/* 卡片左侧 */
+.cardLeft {
+  flex: 1;
+  margin-right: 0.75rem;
+  overflow: hidden;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  color: black;               /* 标题黑色 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardDescription {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);  /* 描述灰色 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 卡片右侧 */
+.cardRight {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图标黑色 */
+.iconBlack {
+  color: black;
+}
+
+/* 卡片图片 */
+.cardImage {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* 形状类 */
+.circle {
+  border-radius: 50%;
+}
+
+.roundedSquare {
+  border-radius: 12px;
+}
+
+.square {
+  border-radius: 8px;
+}
+
+.original {
+  border-radius: 0;
+}
+
+/* Giscus 评论区 */
+.comments {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comments h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: var(--ifm-heading-color);
+}
+
+/* 响应式：小屏幕单列 */
+@media screen and (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+  .gradientText {
+    font-size: 2rem;
+  }
+  .content {
+    padding: 0 0.75rem;
+  }
+}
