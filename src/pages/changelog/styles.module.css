@@ -1,0 +1,216 @@
+/* src/pages/changelog/styles.module.css */
+
+/* ========== 页面头部（与友链一致） ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-heading-color);
+}
+
+.titleBlack {
+  color: var(--ifm-font-color-base);
+}
+
+.titleBlue {
+  color: var(--ifm-color-primary);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+}
+
+.description a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+.description a:hover {
+  text-decoration: underline;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* 统计框容器 */
+.stats {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 统计框 */
+.statBox {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 2rem 1.5rem 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: transparent;
+  min-width: 190px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 图标容器 */
+.statIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border: none;
+  border-radius: 6px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.statIcon svg {
+  color: var(--ifm-color-emphasis-600);
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.statNumber {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========== 更新日志内容区 ========== */
+/* 最大宽度比友链内容稍窄 */
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* 年份分组 */
+.yearSection {
+  margin-bottom: 2.5rem;
+}
+
+.yearTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+/* 月份分组 */
+.monthSection {
+  margin-bottom: 1.5rem;
+}
+
+.monthTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  margin-bottom: 0.75rem;
+}
+
+/* 日志列表：去掉默认项目符号 */
+.changelogList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* 单条日志 */
+.changelogItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  line-height: 1.7;
+}
+
+/* 标签 */
+.tag {
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 颜色分类 */
+.green {
+  color: #16a34a;                 /* 绿色：新增、发布 */
+}
+
+.blue {
+  color: var(--ifm-color-primary); /* 蓝色：变更、改进、升级、修复 */
+}
+
+.red {
+  color: #dc2626;                 /* 红色：移除、弃用 */
+}
+
+/* 日志内容 */
+.changelogContent {
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 996px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .headerRight {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .statBox {
+    width: 100%;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .content {
+    padding: 0 0.75rem;
+  }
+}
