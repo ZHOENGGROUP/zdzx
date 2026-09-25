@@ -6,7 +6,7 @@ import Content from './_content.mdx';
 import { ContactBox, InfoBox, TocBox, TocItem } from './_components';
 import styles from './styles.module.css';
 
-const LAST_UPDATE = '2026-09-25';
+const LAST_UPDATE = '2026年9月25日';
 const CONTACT_EMAIL = 'privacy@zhoeng.com.cn';
 
 export default function PrivacyPolicy() {
@@ -47,7 +47,6 @@ export default function PrivacyPolicy() {
       const pct = ((viewportBottom - articleTop) / articleHeight) * 100;
       setProgress(Math.max(0, Math.min(100, pct)));
 
-      // 找出当前位于视口顶部附近的标题
       const headings = el.querySelectorAll('h1, h2, h3');
       let current = '';
       headings.forEach((h) => {
