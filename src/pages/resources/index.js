@@ -77,7 +77,7 @@ export default function Resources() {
               href="mailto:your-email@example.com?subject=申请添加资源&body=标题：%0A描述：%0A链接：%0A图标："
               className={styles.requestButton}
             >
-              <Icon icon="lucide:plus-circle" width={14} height={14} />
+              <Icon icon="lucide:link-2" width={14} height={14} />
               申请添加
             </a>
             <div className={styles.stats}>
