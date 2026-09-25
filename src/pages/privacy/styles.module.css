@@ -1,0 +1,298 @@
+/* src/pages/privacy/styles.module.css */
+
+/* ========== 页面头部 ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 280px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.titleBlack {
+  color: var(--ifm-font-color-base);
+}
+
+.titleBlue {
+  color: var(--ifm-color-primary);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+}
+
+.description a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.description a:hover {
+  text-decoration: underline;
+}
+
+.headerRight {
+  flex-shrink: 0;
+}
+
+/* 联系框：小圆角，仅圆四角 */
+.contactBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  color: var(--ifm-color-emphasis-800);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.contactBox:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.contactIcon {
+  color: var(--ifm-color-primary);
+}
+
+/* ========== 两栏主布局 ========== */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ========== 左侧正文 ========== */
+.contentBody {
+  min-width: 0;
+}
+
+.contentBody h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+  scroll-margin-top: 80px;
+}
+
+.contentBody h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+  scroll-margin-top: 80px;
+}
+
+.contentBody h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+  scroll-margin-top: 80px;
+}
+
+.contentBody p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+}
+
+.contentBody ul {
+  padding-left: 1.5rem;
+}
+
+.contentBody li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+}
+
+/* ========== 右侧边栏 ========== */
+.sidebar {
+  position: relative;
+}
+
+/* ----- 说明框 ----- */
+.infoBox {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  background-color: var(--ifm-card-background-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.infoList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-800);
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.infoItem:last-child {
+  margin-bottom: 0;
+}
+
+.infoIcon {
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--ifm-color-emphasis-200);
+  margin: 0.75rem 0.5rem;
+}
+
+.lastUpdate {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.updateIcon {
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* ----- 目录框：sticky + 固定高度 + 可滚动 ----- */
+.tocBox {
+  position: sticky;
+  top: 80px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: var(--ifm-card-background-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tocHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.tocTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.tocProgressText {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.tocProgressBar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.tocProgressFill {
+  height: 100%;
+  background-color: var(--ifm-color-primary);
+  transition: width 0.1s linear;
+}
+
+.tocNav {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tocLink {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  line-height: 1.4;
+  transition: all 0.15s ease;
+}
+
+.tocLink:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+.tocLevel1 {
+  padding-left: 0.4rem;
+  font-weight: 600;
+}
+
+.tocLevel2 {
+  padding-left: 1.1rem;
+}
+
+.tocLevel3 {
+  padding-left: 1.8rem;
+  font-size: 0.8rem;
+}
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 996px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+  .tocBox {
+    position: static;
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+}
