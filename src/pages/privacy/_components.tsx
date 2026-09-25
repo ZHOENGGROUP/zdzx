@@ -23,16 +23,29 @@ export function ContactBox({ email, text }: ContactBoxProps) {
   );
 }
 
-/* ============ 说明框 ============ */
+/* ============ 说明框：标题 + 描述 ============ */
 interface InfoItem {
   icon: string;
-  text: string;
+  title: string;
+  description: string;
 }
 
 const INFO_ITEMS: InfoItem[] = [
-  { icon: 'lucide:info', text: '本政策说明我们如何收集与使用您的信息' },
-  { icon: 'lucide:shield-check', text: '我们承诺严格保护您的个人隐私安全' },
-  { icon: 'lucide:user-check', text: '您可以随时查阅、更正或删除您的信息' },
+  {
+    icon: 'lucide:info',
+    title: '信息收集说明',
+    description: '本政策说明我们如何收集与使用您的信息',
+  },
+  {
+    icon: 'lucide:shield-check',
+    title: '隐私安全承诺',
+    description: '我们承诺严格保护您的个人隐私安全',
+  },
+  {
+    icon: 'lucide:user-check',
+    title: '您的权利',
+    description: '您可以随时查阅、更正或删除您的信息',
+  },
 ];
 
 interface InfoBoxProps {
@@ -48,10 +61,13 @@ export function InfoBox({ lastUpdate }: InfoBoxProps) {
             <Icon
               icon={item.icon}
               className={styles.infoIcon}
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
-            <span>{item.text}</span>
+            <div className={styles.infoText}>
+              <div className={styles.infoTitle}>{item.title}</div>
+              <div className={styles.infoDescription}>{item.description}</div>
+            </div>
           </li>
         ))}
       </ul>
@@ -62,10 +78,13 @@ export function InfoBox({ lastUpdate }: InfoBoxProps) {
         <Icon
           icon="lucide:clock"
           className={styles.updateIcon}
-          width={14}
-          height={14}
+          width={16}
+          height={16}
         />
-        <span>最后更新：{lastUpdate}</span>
+        <div className={styles.updateText}>
+          <div className={styles.updateLabel}>最后更新</div>
+          <div className={styles.updateDate}>{lastUpdate}</div>
+        </div>
       </div>
     </div>
   );
@@ -81,7 +100,7 @@ export interface TocItem {
 interface TocBoxProps {
   toc: TocItem[];
   progress: number;
-  activeId: string;         // 当前激活的标题 ID
+  activeId: string;
 }
 
 export function TocBox({ toc, progress, activeId }: TocBoxProps) {
