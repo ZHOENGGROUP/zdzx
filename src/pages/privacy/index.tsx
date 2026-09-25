@@ -13,6 +13,7 @@ export default function PrivacyPolicy() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [toc, setToc] = useState<TocItem[]>([]);
   const [progress, setProgress] = useState(0);
+  const [activeId, setActiveId] = useState('');
 
   // 从渲染后的正文中提取 h1/h2/h3 生成目录
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function PrivacyPolicy() {
     setToc(items);
   }, []);
 
-  // 监听滚动，计算阅读进度
+  // 监听滚动：计算进度 + 高亮当前标题
   useEffect(() => {
     const handleScroll = () => {
       if (!contentRef.current) return;
@@ -45,6 +46,17 @@ export default function PrivacyPolicy() {
 
       const pct = ((viewportBottom - articleTop) / articleHeight) * 100;
       setProgress(Math.max(0, Math.min(100, pct)));
+
+      // 找出当前位于视口顶部附近的标题
+      const headings = el.querySelectorAll('h1, h2, h3');
+      let current = '';
+      headings.forEach((h) => {
+        const hRect = h.getBoundingClientRect();
+        if (hRect.top <= 120) {
+          current = h.id;
+        }
+      });
+      setActiveId(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -81,15 +93,13 @@ export default function PrivacyPolicy() {
 
         {/* ===== 两栏主布局 ===== */}
         <div className={styles.mainLayout}>
-          {/* 左侧：Markdown 正文 */}
           <div ref={contentRef} className={styles.contentBody}>
             <Content />
           </div>
 
-          {/* 右侧：说明框 + 目录框 */}
           <aside className={styles.sidebar}>
             <InfoBox lastUpdate={LAST_UPDATE} />
-            <TocBox toc={toc} progress={progress} />
+            <TocBox toc={toc} progress={progress} activeId={activeId} />
           </aside>
         </div>
       </div>
