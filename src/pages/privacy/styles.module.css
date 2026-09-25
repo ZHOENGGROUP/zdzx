@@ -72,15 +72,20 @@
 }
 
 .contactIcon {
-  color: var(--ifm-color-emphasis-600);   /* 灰色图标 */
+  color: var(--ifm-color-emphasis-600);
 }
 
-/* ========== 两栏主布局 ========== */
+/* ==========================================================
+   两栏主布局
+   ⚠️ 关键：不使用 align-items: start
+   让 grid item 默认 stretch（拉伸），使得 .sidebar 高度与
+   左侧正文一致，这样 .tocBox 的 position: sticky 才有滑动空间
+   ========================================================== */
 .mainLayout {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 300px;      /* 宽度从 280px 调宽到 300px */
   gap: 2.5rem;
-  align-items: start;
+  /* 不要写 align-items: start，否则 sidebar 高度不足，sticky 失效 */
 }
 
 /* ========== 左侧正文 ========== */
@@ -133,6 +138,7 @@
 /* ========== 右侧边栏 ========== */
 .sidebar {
   position: relative;
+  /* sidebar 会被 grid 拉伸到与左侧同高，为 sticky 提供空间 */
 }
 
 /* ----- 说明框 ----- */
@@ -154,21 +160,41 @@
 .infoItem {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-800);
-  line-height: 1.5;
-  margin-bottom: 0.6rem;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .infoItem:last-child {
   margin-bottom: 0;
 }
 
+/* 蓝色图标：调大 */
 .infoIcon {
   color: var(--ifm-color-primary);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+.infoText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+/* 标题：黑色加粗 */
+.infoTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  line-height: 1.3;
+}
+
+/* 描述：灰色 */
+.infoDescription {
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.45;
 }
 
 .divider {
@@ -177,20 +203,43 @@
   margin: 0.75rem 0.5rem;
 }
 
+/* 最后更新时间 */
 .lastUpdate {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* 时钟图标：调大 + 灰色 */
+.updateIcon {
+  color: var(--ifm-color-emphasis-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.updateText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.3;
+}
+
+/* "最后更新"：小字灰色 */
+.updateLabel {
+  font-size: 0.72rem;
   color: var(--ifm-color-emphasis-600);
 }
 
-.updateIcon {
-  color: var(--ifm-color-emphasis-500);
+/* 日期：黑色加粗 */
+.updateDate {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
 }
 
-/* ========== 目录框 ========== */
-/* 高度增加为 520px；sticky 固定在视口顶部 80px 处 */
+/* ==========================================================
+   目录框：sticky 固定
+   ========================================================== */
 .tocBox {
   position: sticky;
   top: 80px;
@@ -199,9 +248,11 @@
   padding: 1rem;
   background-color: var(--ifm-card-background-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  height: 520px;
+  height: 480px;                          /* 从 520px 稍微调小到 480px */
   display: flex;
   flex-direction: column;
+  /* 关键：防止 sticky 元素被父容器 overflow 限制 */
+  align-self: start;
 }
 
 .tocHeader {
@@ -238,21 +289,19 @@
   transition: width 0.1s linear;
 }
 
-/* ----- 目录导航区域：可滚动 + 自定义细滚动条 ----- */
+/* ----- 目录导航区域：细滚动条 ----- */
 .tocNav {
   overflow-y: auto;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  /* Firefox 细滚动条 */
   scrollbar-width: thin;
   scrollbar-color: var(--ifm-color-emphasis-300) transparent;
 }
 
-/* Webkit 细滚动条（Chrome/Edge/Safari） */
 .tocNav::-webkit-scrollbar {
-  width: 4px;                    /* 细滚动条 */
+  width: 4px;
 }
 
 .tocNav::-webkit-scrollbar-track {
@@ -268,7 +317,6 @@
   background-color: var(--ifm-color-emphasis-400);
 }
 
-/* 隐藏滚动条上下两端箭头 */
 .tocNav::-webkit-scrollbar-button {
   display: none;
   height: 0;
@@ -276,15 +324,14 @@
 }
 
 /* ========== 目录项 ========== */
-/* 每个目录项左侧有一条浅竖线，竖线不贴框边（通过 margin-left） */
 .tocLink {
   display: block;
   font-size: 0.85rem;
   color: var(--ifm-color-emphasis-700);
   text-decoration: none;
   padding: 0.25rem 0.4rem 0.25rem 0.6rem;
-  margin-left: 0.2rem;                        /* 竖线不挨住框边 */
-  border-left: 2px solid var(--ifm-color-emphasis-200);  /* 浅竖线 */
+  margin-left: 0.2rem;
+  border-left: 2px solid var(--ifm-color-emphasis-200);
   line-height: 1.4;
   transition: all 0.15s ease;
 }
@@ -295,14 +342,12 @@
   text-decoration: none;
 }
 
-/* 激活态：文字变蓝 + 左侧竖线变蓝 */
 .tocLinkActive {
   color: var(--ifm-color-primary);
   border-left-color: var(--ifm-color-primary);
   font-weight: 600;
 }
 
-/* 层级缩进 */
 .tocLevel1 {
   padding-left: 0.6rem;
   font-weight: 600;
@@ -323,11 +368,11 @@
     grid-template-columns: 1fr;
   }
 
-  /* 小屏幕时目录框不再 sticky */
+  /* 小屏幕时取消 sticky，避免遮挡正文 */
   .tocBox {
     position: static;
     height: auto;
-    max-height: 520px;
+    max-height: 480px;
   }
 }
 
