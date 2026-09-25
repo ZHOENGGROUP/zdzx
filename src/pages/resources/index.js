@@ -1,5 +1,5 @@
 // src/pages/resources/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
@@ -8,7 +8,6 @@ import styles from './styles.module.css';
 
 const totalResources = resourceGroups.reduce((acc, group) => acc + group.resources.length, 0);
 
-// 根据 avatarShape 返回对应的 CSS 类名
 const getAvatarShapeClass = (shape) => {
   switch (shape) {
     case 'square':
@@ -23,11 +22,46 @@ const getAvatarShapeClass = (shape) => {
   }
 };
 
+function ResourceCard({ resource }) {
+  const [imageError, setImageError] = useState(false);
+  const showPlaceholder = !resource.avatar || imageError;
+
+  return (
+    <a
+      href={resource.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.cardLink}
+    >
+      <div className={styles.card}>
+        <div className={styles.avatarWrapper}>
+          {showPlaceholder ? (
+            <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(resource.avatarShape)}`}>
+              <Icon icon="lucide:box" width={24} height={24} />
+            </div>
+          ) : (
+            <img
+              src={resource.avatar}
+              alt={resource.title}
+              className={`${styles.avatar} ${getAvatarShapeClass(resource.avatarShape)}`}
+              onError={() => setImageError(true)}
+              loading="lazy"
+            />
+          )}
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.cardTitle}>{resource.title}</div>
+          <div className={styles.cardDescription}>{resource.description}</div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function Resources() {
   return (
     <Layout title="精选资源" description="河北正定中学 · 线上活动中心的精选资源">
       <div className="container margin-vert--lg">
-        {/* 页面头部 */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <h1 className={styles.title}>
@@ -39,7 +73,6 @@ export default function Resources() {
             </p>
           </div>
           <div className={styles.headerRight}>
-            {/* 申请添加按钮 */}
             <a
               href="mailto:your-email@example.com?subject=申请添加资源&body=标题：%0A描述：%0A链接：%0A图标："
               className={styles.requestButton}
@@ -47,7 +80,6 @@ export default function Resources() {
               <Icon icon="lucide:plus-circle" width={14} height={14} />
               申请添加
             </a>
-            {/* 统计框 */}
             <div className={styles.stats}>
               <div className={styles.statBox}>
                 <span className={styles.statIcon}>
@@ -71,7 +103,6 @@ export default function Resources() {
           </div>
         </div>
 
-        {/* 分组列表 */}
         {resourceGroups.map((group, groupIndex) => (
           <div key={groupIndex} className={styles.group}>
             <div className={styles.groupHeader}>
@@ -82,35 +113,7 @@ export default function Resources() {
             </div>
             <div className={styles.resourceList}>
               {group.resources.map((resource, resourceIndex) => (
-                <a
-                  href={resource.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={resourceIndex}
-                  className={styles.cardLink}
-                >
-                  <div className={styles.card}>
-                    <div className={styles.avatarWrapper}>
-                      <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(resource.avatarShape)}`}>
-                        <Icon icon="lucide:box" width={24} height={24} />
-                      </div>
-                      {resource.avatar && (
-                        <img
-                          src={resource.avatar}
-                          alt={resource.title}
-                          className={`${styles.avatar} ${getAvatarShapeClass(resource.avatarShape)}`}
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                      )}
-                    </div>
-                    <div className={styles.cardContent}>
-                      <div className={styles.cardTitle}>{resource.title}</div>
-                      <div className={styles.cardDescription}>{resource.description}</div>
-                    </div>
-                  </div>
-                </a>
+                <ResourceCard key={resourceIndex} resource={resource} />
               ))}
             </div>
           </div>
