@@ -56,10 +56,8 @@ export function InfoBox({ lastUpdate }: InfoBoxProps) {
         ))}
       </ul>
 
-      {/* 浅分割线，左右不挨边框 */}
       <div className={styles.divider} />
 
-      {/* 最后更新时间 */}
       <div className={styles.lastUpdate}>
         <Icon
           icon="lucide:clock"
@@ -83,9 +81,10 @@ export interface TocItem {
 interface TocBoxProps {
   toc: TocItem[];
   progress: number;
+  activeId: string;         // 当前激活的标题 ID
 }
 
-export function TocBox({ toc, progress }: TocBoxProps) {
+export function TocBox({ toc, progress, activeId }: TocBoxProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
@@ -102,7 +101,6 @@ export function TocBox({ toc, progress }: TocBoxProps) {
         <span className={styles.tocProgressText}>{Math.round(progress)}%</span>
       </div>
 
-      {/* 进度条 */}
       <div className={styles.tocProgressBar}>
         <div
           className={styles.tocProgressFill}
@@ -110,16 +108,19 @@ export function TocBox({ toc, progress }: TocBoxProps) {
         />
       </div>
 
-      {/* 目录列表 */}
       <nav className={styles.tocNav}>
         {toc.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
             onClick={(e) => handleClick(e, item.id)}
-            className={`${styles.tocLink} ${
-              styles[`tocLevel${item.level}`] || ''
-            }`}
+            className={[
+              styles.tocLink,
+              styles[`tocLevel${item.level}`] || '',
+              item.id === activeId ? styles.tocLinkActive : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           >
             {item.text}
           </a>
