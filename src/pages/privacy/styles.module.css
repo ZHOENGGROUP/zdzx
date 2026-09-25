@@ -72,7 +72,7 @@
 }
 
 .contactIcon {
-  color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-600);   /* 灰色，自动适应明暗模式 */
 }
 
 /* ========== 两栏主布局 ========== */
