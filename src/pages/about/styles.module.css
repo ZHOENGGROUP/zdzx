@@ -8,7 +8,7 @@
 /* 顶部欢迎语 */
 .welcomeSection {
   text-align: center;
-  margin: 3rem 0 1rem;       /* 增加上下距离 */
+  margin: 3rem 0 1rem;
   width: 100%;
 }
 
@@ -39,7 +39,7 @@
   margin: 0 auto;
 }
 
-/* 标题：加粗居左，字号适中 */
+/* 标题 */
 .title {
   font-size: 1.6rem;
   font-weight: 700;
@@ -79,7 +79,7 @@
   color: inherit;
 }
 
-/* 单个卡片：默认有阴影立体感 */
+/* 单个卡片 */
 .card {
   display: flex;
   justify-content: space-between;
@@ -93,7 +93,6 @@
   height: 100%;
 }
 
-/* 悬停：只改变边框颜色，无起伏、无阴影变化、无下划线 */
 .card:hover {
   border-color: var(--ifm-color-primary);
 }
@@ -137,21 +136,25 @@
   justify-content: center;
 }
 
-/* 图标黑色，无背景 */
+/* ============================================
+   图标颜色：改为主题感知
+   浅色模式显示黑色，深色模式显示白色
+   ============================================ */
 .iconBlack {
-  color: black;
+  color: var(--ifm-font-color-base);   /* 自适应 */
 }
 
-/* 卡片图片 */
+/* ============================================
+   卡片图片：移除背景色，与外部保持一致
+   ============================================ */
 .cardImage {
   width: 40px;
   height: 40px;
   object-fit: cover;
-  background-color: var(--ifm-color-emphasis-100);
-  border-radius: 50%;              /* 强制圆形，与 shape 无关，确保图片是圆形 */
+  background-color: transparent;       /* 原为 emphasis-100，改为透明 */
 }
 
-/* 形状类（备用，但图片已强制圆形） */
+/* 形状类 */
 .circle {
   border-radius: 50%;
 }
@@ -182,7 +185,7 @@
   color: var(--ifm-heading-color);
 }
 
-/* 响应式：小屏幕单列 */
+/* 响应式 */
 @media screen and (max-width: 768px) {
   .cardsGrid {
     grid-template-columns: 1fr;
@@ -193,4 +196,4 @@
   .content {
     padding: 0 0.75rem;
   }
-  }
+}
