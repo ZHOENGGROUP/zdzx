@@ -1,13 +1,25 @@
 // src/data/changelog.js
 export const TYPE_LABEL = {
   added: '新增',
+  released: '发布',
   changed: '变更',
-  removed: '移除',
+  fixed: '修复',
   improved: '改进',
   upgraded: '升级',
-  fixed: '修复',
+  removed: '移除',
   deprecated: '弃用',
-  released: '发布',
+};
+
+// 类型对应的颜色分类
+export const TYPE_COLOR = {
+  added: 'green',
+  released: 'green',
+  changed: 'blue',
+  fixed: 'blue',
+  improved: 'blue',
+  upgraded: 'blue',
+  removed: 'red',
+  deprecated: 'red',
 };
 
 export const CHANGELOG_LIST = [
