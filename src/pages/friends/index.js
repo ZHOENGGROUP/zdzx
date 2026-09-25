@@ -1,5 +1,5 @@
 // src/pages/friends/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
@@ -23,6 +23,46 @@ const getAvatarShapeClass = (shape) => {
   }
 };
 
+/**
+ * 单个卡片组件
+ * 使用状态管理图片加载失败的情况：只有图片缺失或失败时才显示占位符
+ */
+function FriendCard({ friend }) {
+  const [imageError, setImageError] = useState(false);
+  const showPlaceholder = !friend.avatar || imageError;
+
+  return (
+    <a
+      href={friend.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.cardLink}
+    >
+      <div className={styles.card}>
+        <div className={styles.avatarWrapper}>
+          {showPlaceholder ? (
+            <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(friend.avatarShape)}`}>
+              <Icon icon="lucide:user" width={24} height={24} />
+            </div>
+          ) : (
+            <img
+              src={friend.avatar}
+              alt={friend.title}
+              className={`${styles.avatar} ${getAvatarShapeClass(friend.avatarShape)}`}
+              onError={() => setImageError(true)}
+              loading="lazy"
+            />
+          )}
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.cardTitle}>{friend.title}</div>
+          <div className={styles.cardDescription}>{friend.description}</div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function Friends() {
   return (
     <Layout title="友链" description="友情链接">
@@ -39,7 +79,6 @@ export default function Friends() {
             </p>
           </div>
           <div className={styles.headerRight}>
-            {/* 申请友链按钮 */}
             <a
               href="mailto:your-email@example.com?subject=申请友链&body=标题：%0A描述：%0A链接：%0A头像："
               className={styles.requestButton}
@@ -47,7 +86,6 @@ export default function Friends() {
               <Icon icon="lucide:link-2" width={14} height={14} />
               申请友链
             </a>
-            {/* 统计框 */}
             <div className={styles.stats}>
               <div className={styles.statBox}>
                 <span className={styles.statIcon}>
@@ -82,37 +120,7 @@ export default function Friends() {
             </div>
             <div className={styles.friendList}>
               {group.friends.map((friend, friendIndex) => (
-                <a
-                  href={friend.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={friendIndex}
-                  className={styles.cardLink}
-                >
-                  <div className={styles.card}>
-                    <div className={styles.avatarWrapper}>
-                      {/* 占位图标（始终显示，图片加载失败后保持可见） */}
-                      <div className={`${styles.avatarPlaceholder} ${getAvatarShapeClass(friend.avatarShape)}`}>
-                        <Icon icon="lucide:user" width={24} height={24} />
-                      </div>
-                      {/* 头像图片（如果有 avatar 才渲染） */}
-                      {friend.avatar && (
-                        <img
-                          src={friend.avatar}
-                          alt={friend.title}
-                          className={`${styles.avatar} ${getAvatarShapeClass(friend.avatarShape)}`}
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                      )}
-                    </div>
-                    <div className={styles.cardContent}>
-                      <div className={styles.cardTitle}>{friend.title}</div>
-                      <div className={styles.cardDescription}>{friend.description}</div>
-                    </div>
-                  </div>
-                </a>
+                <FriendCard key={friendIndex} friend={friend} />
               ))}
             </div>
           </div>
