@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
-import peopleGroups from '@site/src/data/people';
+import peopleGroups from '@site/src/data/personages';
 import styles from './styles.module.css';
 
 const totalPeople = peopleGroups.reduce(
