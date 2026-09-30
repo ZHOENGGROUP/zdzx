@@ -153,7 +153,7 @@ const config = {
             position: 'right',
             items: [
               { to: '/about', label: '关于' },
-              { to: '/services', label: '服务' },
+              { to: '/personages', label: '人物' },
               { to: '/friends', label: '友链' },
               { to: '/resources', label: '资源' },
             ],
@@ -163,10 +163,10 @@ const config = {
             label: '网站',
             position: 'right',
             items: [
-              { to: '/settings', label: '设置' },
-              { to: '/insights', label: '洞察' },
               { to: '/changelog', label: '更新日志' },
+              { to: '/agreement', label: '用户协议' },
               { to: '/privacy', label: '隐私政策' },
+              { to: '/disclaimer', label: '免责声明' },
             ],
           },
           {
@@ -216,7 +216,7 @@ const config = {
             title: '页面',
             items: [
               { label: '关于', to: '/about' },
-              { label: '服务', to: '/services' },
+              { label: '人物', to: '/personages' },
               { label: '友链', to: '/friends' },
               { label: '资源', to: '/resources' },
             ],
@@ -224,10 +224,10 @@ const config = {
           {
             title: '网站',
             items: [
-              { label: '设置', to: '/settings' },
-              { label: '洞察', to: '/insights' },
               { label: '更新日志', to: '/changelog' },
+              { label: '用户协议', to: '/agreement' },
               { label: '隐私政策', to: '/privacy' },
+              { label: '免责声明', to: '/disclaimer' },
             ],
           },
           {
