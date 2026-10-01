@@ -14,10 +14,15 @@ const peopleGroups = [
           '曾主持多项教育创新项目，成果获省级表彰。',
           '现任活动中心名誉顾问，参与重大决策与规划。',
         ],
-        // 浅色模式使用的 API 地址
-        apiUrlLight: 'https://api.xecades.xyz/api?encode=svg',
-        // 深色模式使用的 API 地址
-        apiUrlDark: 'https://api.xecades.xyz/api?encode=svg&theme=dark',
+        profile: {
+          items: [
+            { icon: 'lucide:mail', label: '邮箱', value: 'zhangmy@example.com' },
+            { icon: 'lucide:github', label: 'GitHub', value: '@zhangmy' },
+            { icon: 'lucide:globe', label: '网站', value: 'zhangmy.dev' },
+            { icon: 'lucide:map-pin', label: '所在地', value: '河北 · 正定' },
+          ],
+          tags: ['教育创新', '青少年成长', '课程设计'],
+        },
       },
       {
         name: '李静怡',
@@ -29,8 +34,15 @@ const peopleGroups = [
           '在高校从事教育学研究，发表论文数十篇。',
           '为活动中心提供学术方向与课程设计指导。',
         ],
-        apiUrlLight: 'https://api.xecades.xyz/api?encode=svg&color=blue',
-        apiUrlDark: 'https://api.xecades.xyz/api?encode=svg&color=blue&theme=dark',
+        profile: {
+          items: [
+            { icon: 'lucide:mail', label: '邮箱', value: 'lijingyi@example.com' },
+            { icon: 'lucide:book-open', label: '研究', value: '教育学 · 课程论' },
+            { icon: 'lucide:globe', label: '网站', value: 'lijingyi.edu.cn' },
+            { icon: 'lucide:map-pin', label: '所在地', value: '北京' },
+          ],
+          tags: ['教育研究', '学术指导', '课程论'],
+        },
       },
     ],
   },
@@ -48,8 +60,15 @@ const peopleGroups = [
           '推动多项开源项目在校内的落地应用。',
           '持续为线上活动提供技术支持与优化建议。',
         ],
-        apiUrlLight: 'https://api.xecades.xyz/api?encode=svg',
-        apiUrlDark: 'https://api.xecades.xyz/api?encode=svg&theme=dark',
+        profile: {
+          items: [
+            { icon: 'lucide:mail', label: '邮箱', value: 'wangsy@example.com' },
+            { icon: 'lucide:github', label: 'GitHub', value: '@wangsy' },
+            { icon: 'lucide:code', label: '技术栈', value: 'React · Node.js' },
+            { icon: 'lucide:map-pin', label: '所在地', value: '河北 · 石家庄' },
+          ],
+          tags: ['前端开发', '开源', '架构设计'],
+        },
       },
       {
         name: '陈佳琪',
@@ -61,8 +80,15 @@ const peopleGroups = [
           '擅长活动流程设计与用户互动体验优化。',
           '为活动中心建立了一套完整的活动运营规范。',
         ],
-        apiUrlLight: 'https://api.xecades.xyz/api?encode=svg&font=楷体',
-        apiUrlDark: 'https://api.xecades.xyz/api?encode=svg&font=楷体&theme=dark',
+        profile: {
+          items: [
+            { icon: 'lucide:mail', label: '邮箱', value: 'chenjq@example.com' },
+            { icon: 'lucide:calendar', label: '擅长', value: '活动策划 · 运营' },
+            { icon: 'lucide:globe', label: '网站', value: 'chenjq.cc' },
+            { icon: 'lucide:map-pin', label: '所在地', value: '河北 · 正定' },
+          ],
+          tags: ['活动策划', '用户运营', '内容创作'],
+        },
       },
     ],
   },
