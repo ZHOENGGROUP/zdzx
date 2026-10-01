@@ -192,9 +192,7 @@
   margin-bottom: 1rem;
 }
 
-/* ============================================
-   头像容器：分层方案
-   ============================================ */
+/* 头像容器 */
 .avatarWrapper {
   position: relative;
   width: 68px;
@@ -288,89 +286,117 @@
 }
 
 /* ============================================
-   右侧个人名片区（无背景框，图片放大）
+   右侧个人名片区
    ============================================ */
 .personRight {
-  width: 480px;                 /* 从 420px 放大到 480px */
+  width: 460px;
   flex-shrink: 0;
   display: flex;
   align-items: stretch;
 }
 
-.apiBox {
+/* 名片卡片主体 */
+.profileCard {
   width: 100%;
-  padding: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  background: linear-gradient(
+    135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    var(--ifm-color-primary-contrast-background) 100%
+  );
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.apiHeader {
+[data-theme='dark'] .profileCard {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.14) 0%,
+    rgba(52, 152, 219, 0.05) 100%
+  );
+}
+
+/* 信息列表 */
+.profileItems {
   display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.profileItem {
+  display: grid;
+  grid-template-columns: 28px 62px 1fr;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--ifm-color-primary-dark);
-  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
-[data-theme='dark'] .apiHeader {
-  color: var(--ifm-color-primary-light);
-}
-
-.apiIcon {
+/* 图标框：小方形，带浅背景 */
+.profileIconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background-color: rgba(52, 152, 219, 0.12);
   color: var(--ifm-color-primary);
   flex-shrink: 0;
 }
 
-.apiRefresh {
-  margin-left: auto;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--ifm-color-emphasis-500);
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
+[data-theme='dark'] .profileIconBox {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: var(--ifm-color-primary-light);
 }
 
-.apiRefresh:hover {
-  color: var(--ifm-color-primary);
-}
-
-.apiContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-/* ============================================
-   占位框：固定比例，加载前后大小不变
-   Xecades 名片 SVG 约 800 × 418
-   ============================================ */
-.apiImageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 800 / 418;
-  background-color: var(--ifm-color-emphasis-100);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* 图片绝对定位铺满容器 */
-.apiImage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.profileIcon {
   display: block;
+}
+
+/* 标签：灰色小字 */
+.profileLabel {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+}
+
+/* 值：主文字色 */
+.profileValue {
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 标签组 */
+.profileTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--ifm-color-emphasis-300);
+}
+
+.profileTag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  color: var(--ifm-color-primary);
+  background-color: rgba(52, 152, 219, 0.1);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .profileTag {
+  color: var(--ifm-color-primary-light);
+  background-color: rgba(52, 152, 219, 0.18);
 }
 
 /* ========== 响应式 ========== */
@@ -411,5 +437,10 @@
   }
   .personName {
     font-size: 1.15rem;
+  }
+  .profileItem {
+    grid-template-columns: 26px 54px 1fr;
+    gap: 0.5rem;
+    font-size: 0.8rem;
   }
 }
