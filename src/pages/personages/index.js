@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
+import { useColorMode } from '@docusaurus/theme-common';
 import peopleGroups from '@site/src/data/personages';
 import styles from './styles.module.css';
 
@@ -13,21 +14,15 @@ const totalPeople = peopleGroups.reduce(
 
 /* ==========================================================
    头像组件：分层方案
-   - 底层始终渲染默认头像
-   - 图片覆盖在上层（position: absolute）
-   - 图片加载失败时移除图片，默认头像自然显示
    ========================================================== */
 function Avatar({ src, alt, name }) {
   const [failed, setFailed] = useState(false);
 
   return (
     <div className={styles.avatarWrapper}>
-      {/* 默认头像（底层） */}
       <div className={styles.defaultAvatar}>
         <Icon icon="lucide:user" width={32} height={32} />
       </div>
-
-      {/* 图片（覆盖层），加载失败则移除 */}
       {src && !failed && (
         <img
           src={src}
@@ -41,17 +36,20 @@ function Avatar({ src, alt, name }) {
 }
 
 /* ==========================================================
-   个人名片组件：直接以图片方式渲染
-   - Xecades API 返回 SVG 图片，不是 JSON
-   - 刷新时添加时间戳参数，强制重新请求
+   个人名片组件
+   - 使用 useColorMode 获取当前实际生效的主题
+   - 根据主题切换使用不同的 API 地址
+   - 外层有固定比例的占位框，加载前后大小不变
    ========================================================== */
-function ApiBox({ apiUrl }) {
+function ApiBox({ apiUrlLight, apiUrlDark }) {
+  const { colorMode } = useColorMode();   // 'light' 或 'dark'，自动处理跟随系统
   const [timestamp, setTimestamp] = useState(Date.now());
 
   const refresh = () => setTimestamp(Date.now());
 
-  // 添加时间戳避免缓存
-  const urlWithTs = `${apiUrl}${apiUrl.includes('?') ? '&' : '?'}_t=${timestamp}`;
+  const baseUrl = colorMode === 'dark' ? apiUrlDark : apiUrlLight;
+  // 时间戳防止缓存
+  const urlWithTs = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${timestamp}`;
 
   return (
     <div className={styles.apiBox}>
@@ -73,12 +71,16 @@ function ApiBox({ apiUrl }) {
         </button>
       </div>
       <div className={styles.apiContent}>
-        <img
-          src={urlWithTs}
-          alt="个人名片"
-          className={styles.apiImage}
-          loading="lazy"
-        />
+        {/* 占位框：固定比例，图片绝对定位铺满 */}
+        <div className={styles.apiImageWrapper}>
+          <img
+            key={urlWithTs}
+            src={urlWithTs}
+            alt="个人名片"
+            className={styles.apiImage}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   );
@@ -186,7 +188,10 @@ export default function Personages() {
                   </div>
 
                   <div className={styles.personRight}>
-                    <ApiBox apiUrl={person.apiUrl} />
+                    <ApiBox
+                      apiUrlLight={person.apiUrlLight}
+                      apiUrlDark={person.apiUrlDark}
+                    />
                   </div>
                 </div>
               ))}
