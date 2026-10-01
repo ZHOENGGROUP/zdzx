@@ -1,5 +1,5 @@
 // src/pages/personages/index.js
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
@@ -11,72 +11,47 @@ const totalPeople = peopleGroups.reduce(
   0
 );
 
-/* ============ 头像组件（修复重叠问题） ============ */
+/* ==========================================================
+   头像组件：分层方案
+   - 底层始终渲染默认头像
+   - 图片覆盖在上层（position: absolute）
+   - 图片加载失败时移除图片，默认头像自然显示
+   ========================================================== */
 function Avatar({ src, alt, name }) {
-  const [status, setStatus] = useState('loading'); // 'loading' | 'loaded' | 'error'
+  const [failed, setFailed] = useState(false);
 
-  useEffect(() => {
-    // 每次 src 变化时重置状态
-    setStatus(src ? 'loading' : 'error');
-  }, [src]);
-
-  if (!src || status === 'error') {
-    return (
+  return (
+    <div className={styles.avatarWrapper}>
+      {/* 默认头像（底层） */}
       <div className={styles.defaultAvatar}>
         <Icon icon="lucide:user" width={32} height={32} />
       </div>
-    );
-  }
 
-  return (
-    <>
-      <img
-        key={src} // 确保切换图片时重新渲染
-        src={src}
-        alt={alt || name}
-        className={styles.avatar}
-        style={{ display: status === 'loaded' ? 'block' : 'none' }}
-        onLoad={() => setStatus('loaded')}
-        onError={() => setStatus('error')}
-      />
-      {status === 'loading' && (
-        <div className={styles.defaultAvatar}>
-          <Icon icon="lucide:user" width={32} height={32} />
-        </div>
+      {/* 图片（覆盖层），加载失败则移除 */}
+      {src && !failed && (
+        <img
+          src={src}
+          alt={alt || name}
+          className={styles.avatar}
+          onError={() => setFailed(true)}
+        />
       )}
-    </>
+    </div>
   );
 }
 
-/* ============ API 框组件（接收每人链接） ============ */
+/* ==========================================================
+   API 框组件：直接以图片方式渲染
+   - Xecades API 返回 SVG 图片，不是 JSON
+   - 刷新时添加时间戳参数，强制重新请求
+   ========================================================== */
 function ApiBox({ apiUrl }) {
-  const [quote, setQuote] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [timestamp, setTimestamp] = useState(Date.now());
 
-  const fetchQuote = () => {
-    setLoading(true);
-    fetch(apiUrl)
-      .then((r) => r.json())
-      .then((data) => {
-        setQuote(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setQuote(null);
-        setLoading(false);
-      });
-  };
+  const refresh = () => setTimestamp(Date.now());
 
-  useEffect(() => {
-    fetchQuote();
-  }, [apiUrl]);
-
-  const textContent =
-    typeof quote === 'string'
-      ? quote
-      : quote?.text || quote?.hitokoto || quote?.content || '';
-
-  const fromContent = quote?.from || quote?.source || '';
+  // 添加时间戳避免缓存
+  const urlWithTs = `${apiUrl}${apiUrl.includes('?') ? '&' : '?'}_t=${timestamp}`;
 
   return (
     <div className={styles.apiBox}>
@@ -90,25 +65,20 @@ function ApiBox({ apiUrl }) {
         <span>每日一言</span>
         <button
           className={styles.apiRefresh}
-          onClick={fetchQuote}
+          onClick={refresh}
           aria-label="刷新"
+          type="button"
         >
           <Icon icon="lucide:refresh-cw" width={14} height={14} />
         </button>
       </div>
       <div className={styles.apiContent}>
-        {loading ? (
-          <span className={styles.apiLoading}>加载中…</span>
-        ) : textContent ? (
-          <>
-            <p className={styles.apiText}>{textContent}</p>
-            {fromContent && (
-              <p className={styles.apiFrom}>—— {fromContent}</p>
-            )}
-          </>
-        ) : (
-          <p className={styles.apiText}>暂无法加载内容</p>
-        )}
+        <img
+          src={urlWithTs}
+          alt="每日一言"
+          className={styles.apiImage}
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -182,13 +152,11 @@ export default function Personages() {
                 <div key={personIndex} className={styles.personCard}>
                   <div className={styles.personLeft}>
                     <div className={styles.personHeader}>
-                      <div className={styles.avatarWrapper}>
-                        <Avatar
-                          src={person.avatar}
-                          alt={person.name}
-                          name={person.name}
-                        />
-                      </div>
+                      <Avatar
+                        src={person.avatar}
+                        alt={person.name}
+                        name={person.name}
+                      />
                       <div className={styles.personInfo}>
                         <h3 className={styles.personName}>{person.name}</h3>
                         <p className={styles.personTitle}>{person.title}</p>
