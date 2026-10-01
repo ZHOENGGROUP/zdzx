@@ -16,10 +16,10 @@ const peopleGroups = [
         ],
         profile: {
           items: [
-            { icon: 'lucide:mail', label: '邮箱', value: 'xxx' },
-            { icon: 'mdi:wechat', label: '微信', value: 'xxx' },
+            { icon: 'simple-icons:mail', label: '邮箱', value: 'xxx' },
+            { icon: 'simple-icons:wechat', label: '微信', value: 'xxx' },
             { icon: 'simple-icons:qq', label: 'QQ', value: 'xxx' },
-            { icon: 'lucide:github', label: 'GitHub', value: 'xxx' },
+            { icon: 'simple-icons:github', label: 'GitHub', value: 'xxx' },
           ],
           tags: ['物理竞赛', '一等奖', '物化生'],
         },
@@ -36,10 +36,10 @@ const peopleGroups = [
         ],
         profile: {
           items: [
-            { icon: 'lucide:mail', label: '邮箱', value: 'xxx' },
-            { icon: 'mdi:wechat', label: '微信', value: 'xxx' },
+            { icon: 'simple-icons:mail', label: '邮箱', value: 'xxx' },
+            { icon: 'simple-icons:wechat', label: '微信', value: 'xxx' },
             { icon: 'simple-icons:qq', label: 'QQ', value: 'xxx' },
-            { icon: 'lucide:github', label: 'GitHub', value: 'xxx' },
+            { icon: 'simple-icons:github', label: 'GitHub', value: 'xxx' },
           ],
           tags: ['物理竞赛', '一等奖', '物化生'],
         },
@@ -53,8 +53,8 @@ const peopleGroups = [
       {
         name: 'LJH',
         title: '2025 级信息竞赛生',
-        avatar: '',
-        motto: 'xxx',
+        avatar: 'https://cdn.luogu.com.cn/upload/image_hosting/2irz11hg.webp',
+        motto: '此人很懒，什么都没有留下。',
         descriptions: [
           '2025 级信息竞赛生 · 高考物化生选科组合',
           'xxx',
@@ -62,10 +62,11 @@ const peopleGroups = [
         ],
         profile: {
           items: [
-            { icon: 'lucide:mail', label: '邮箱', value: 'xxx' },
-            { icon: 'mdi:wechat', label: '微信', value: 'xxx' },
-            { icon: 'simple-icons:qq', label: 'QQ', value: 'xxx' },
-            { icon: 'lucide:github', label: 'GitHub', value: 'xxx' },
+            { icon: 'simple-icons:mail', label: '邮箱', value: '1269245073@qq.com' },
+            { icon: 'simple-icons:wechat', label: '微信', value: 'liu_quixote' },
+            { icon: 'simple-icons:qq', label: 'QQ', value: '1269245073' },
+            { icon: 'simple-icons:github', label: 'GitHub', value: 'liuge-1123' },
+            { icon: 'simple-icons:luogu', label: '洛谷', value: '1939114' },
           ],
           tags: ['信息竞赛', '初赛一等奖', '物化生'],
         },
