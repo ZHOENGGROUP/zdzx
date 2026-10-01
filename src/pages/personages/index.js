@@ -41,7 +41,7 @@ function Avatar({ src, alt, name }) {
 }
 
 /* ==========================================================
-   API 框组件：直接以图片方式渲染
+   个人名片组件：直接以图片方式渲染
    - Xecades API 返回 SVG 图片，不是 JSON
    - 刷新时添加时间戳参数，强制重新请求
    ========================================================== */
@@ -62,7 +62,7 @@ function ApiBox({ apiUrl }) {
           height={16}
           className={styles.apiIcon}
         />
-        <span>每日一言</span>
+        <span>个人名片</span>
         <button
           className={styles.apiRefresh}
           onClick={refresh}
@@ -75,7 +75,7 @@ function ApiBox({ apiUrl }) {
       <div className={styles.apiContent}>
         <img
           src={urlWithTs}
-          alt="每日一言"
+          alt="个人名片"
           className={styles.apiImage}
           loading="lazy"
         />
