@@ -197,6 +197,7 @@
 
 /* 头像容器：圆形 */
 .avatarWrapper {
+  position: relative;
   width: 68px;
   height: 68px;
   border-radius: 50%;
@@ -207,7 +208,6 @@
   align-items: center;
   justify-content: center;
   border: 2px solid var(--ifm-color-emphasis-200);
-  position: relative;
 }
 
 .avatar {
