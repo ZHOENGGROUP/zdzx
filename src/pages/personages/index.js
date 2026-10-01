@@ -13,19 +13,34 @@ const totalPeople = peopleGroups.reduce(
 
 /* ============ 头像组件 ============ */
 function Avatar({ src, alt, name }) {
+  // loaded 表示图片是否加载成功；failed 表示加载失败
+  const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
+
+  // 是否需要显示默认图标：没有图片源、加载失败、或尚未加载成功
+  const showPlaceholder = !src || failed || !loaded;
 
   return (
     <div className={styles.avatarWrapper}>
-      <div className={styles.defaultAvatar}>
-        <Icon icon="lucide:user" width={32} height={32} />
-      </div>
+      {/* 默认图标：仅在图片未成功加载时渲染 */}
+      {showPlaceholder && (
+        <div className={styles.defaultAvatar}>
+          <Icon icon="lucide:user" width={32} height={32} />
+        </div>
+      )}
+
+      {/* 图片：加载成功后才显示，避免透明图片透出默认图标 */}
       {src && !failed && (
         <img
           src={src}
           alt={alt || name}
           className={styles.avatar}
-          onError={() => setFailed(true)}
+          onLoad={() => setLoaded(true)}
+          onError={() => {
+            setFailed(true);
+            setLoaded(false);
+          }}
+          style={{ display: loaded ? 'block' : 'none' }}
         />
       )}
     </div>
