@@ -1,4 +1,4 @@
-// src/pages/people/index.js
+// src/pages/personages/index.js
 import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -11,14 +11,51 @@ const totalPeople = peopleGroups.reduce(
   0
 );
 
-/* ============ API 框组件 ============ */
-function ApiBox() {
+/* ============ 头像组件（修复重叠问题） ============ */
+function Avatar({ src, alt, name }) {
+  const [status, setStatus] = useState('loading'); // 'loading' | 'loaded' | 'error'
+
+  useEffect(() => {
+    // 每次 src 变化时重置状态
+    setStatus(src ? 'loading' : 'error');
+  }, [src]);
+
+  if (!src || status === 'error') {
+    return (
+      <div className={styles.defaultAvatar}>
+        <Icon icon="lucide:user" width={32} height={32} />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <img
+        key={src} // 确保切换图片时重新渲染
+        src={src}
+        alt={alt || name}
+        className={styles.avatar}
+        style={{ display: status === 'loaded' ? 'block' : 'none' }}
+        onLoad={() => setStatus('loaded')}
+        onError={() => setStatus('error')}
+      />
+      {status === 'loading' && (
+        <div className={styles.defaultAvatar}>
+          <Icon icon="lucide:user" width={32} height={32} />
+        </div>
+      )}
+    </>
+  );
+}
+
+/* ============ API 框组件（接收每人链接） ============ */
+function ApiBox({ apiUrl }) {
   const [quote, setQuote] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const fetchQuote = () => {
     setLoading(true);
-    fetch('https://api.xecades.xyz/api?encode=json')
+    fetch(apiUrl)
       .then((r) => r.json())
       .then((data) => {
         setQuote(data);
@@ -32,7 +69,7 @@ function ApiBox() {
 
   useEffect(() => {
     fetchQuote();
-  }, []);
+  }, [apiUrl]);
 
   const textContent =
     typeof quote === 'string'
@@ -77,17 +114,8 @@ function ApiBox() {
   );
 }
 
-/* ============ 默认头像 ============ */
-function DefaultAvatar() {
-  return (
-    <div className={styles.defaultAvatar}>
-      <Icon icon="lucide:user" width={32} height={32} />
-    </div>
-  );
-}
-
 /* ============ 页面主组件 ============ */
-export default function People() {
+export default function Personages() {
   return (
     <Layout
       title="名誉人物"
@@ -106,7 +134,6 @@ export default function People() {
             </p>
           </div>
           <div className={styles.headerRight}>
-            {/* 申请参选按钮 */}
             <a
               href="mailto:contact@zhoeng.com.cn?subject=申请参选名誉人物&body=姓名：%0A称号：%0A座右铭：%0A简介：%0A头像："
               className={styles.requestButton}
@@ -114,7 +141,6 @@ export default function People() {
               <Icon icon="lucide:link-2" width={14} height={14} />
               申请参选
             </a>
-            {/* 统计框 */}
             <div className={styles.stats}>
               <div className={styles.statBox}>
                 <span className={styles.statIcon}>
@@ -154,25 +180,13 @@ export default function People() {
             <div className={styles.personList}>
               {group.people.map((person, personIndex) => (
                 <div key={personIndex} className={styles.personCard}>
-                  {/* 左侧：头像、姓名、座右铭、简介 */}
                   <div className={styles.personLeft}>
                     <div className={styles.personHeader}>
                       <div className={styles.avatarWrapper}>
-                        {person.avatar ? (
-                          <img
-                            src={person.avatar}
-                            alt={person.name}
-                            className={styles.avatar}
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <DefaultAvatar
-                          style={{
-                            display: person.avatar ? 'none' : 'flex',
-                          }}
+                        <Avatar
+                          src={person.avatar}
+                          alt={person.name}
+                          name={person.name}
                         />
                       </div>
                       <div className={styles.personInfo}>
@@ -193,18 +207,18 @@ export default function People() {
                       </div>
                     )}
 
-                    {person.descriptions && person.descriptions.length > 0 && (
-                      <ul className={styles.personDescriptions}>
-                        {person.descriptions.map((desc, i) => (
-                          <li key={i}>{desc}</li>
-                        ))}
-                      </ul>
-                    )}
+                    {person.descriptions &&
+                      person.descriptions.length > 0 && (
+                        <ul className={styles.personDescriptions}>
+                          {person.descriptions.map((desc, i) => (
+                            <li key={i}>{desc}</li>
+                          ))}
+                        </ul>
+                      )}
                   </div>
 
-                  {/* 右侧：API 框 */}
                   <div className={styles.personRight}>
-                    <ApiBox />
+                    <ApiBox apiUrl={person.apiUrl} />
                   </div>
                 </div>
               ))}
