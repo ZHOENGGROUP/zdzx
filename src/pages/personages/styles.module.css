@@ -194,7 +194,6 @@
 
 /* ============================================
    头像容器：分层方案
-   底层是默认头像，图片绝对定位覆盖在上层
    ============================================ */
 .avatarWrapper {
   position: relative;
@@ -207,7 +206,6 @@
   border: 2px solid var(--ifm-color-emphasis-200);
 }
 
-/* 默认头像（底层，绝对定位铺满） */
 .defaultAvatar {
   position: absolute;
   inset: 0;
@@ -218,7 +216,6 @@
   background-color: var(--ifm-color-emphasis-200);
 }
 
-/* 用户头像（覆盖层，绝对定位铺满） */
 .avatar {
   position: absolute;
   inset: 0;
@@ -294,13 +291,12 @@
    右侧个人名片区（无背景框，图片放大）
    ============================================ */
 .personRight {
-  width: 420px;
+  width: 480px;                 /* 从 420px 放大到 480px */
   flex-shrink: 0;
   display: flex;
   align-items: stretch;
 }
 
-/* 容器：完全透明，无内边距，铺满右侧区域 */
 .apiBox {
   width: 100%;
   padding: 0;
@@ -312,7 +308,6 @@
   justify-content: center;
 }
 
-/* 头部：标题与刷新按钮 */
 .apiHeader {
   display: flex;
   align-items: center;
@@ -348,7 +343,6 @@
   color: var(--ifm-color-primary);
 }
 
-/* 内容区：铺满宽度，图片放大 */
 .apiContent {
   display: flex;
   align-items: center;
@@ -356,14 +350,27 @@
   width: 100%;
 }
 
-/* API 返回的 SVG 图片：尽量放大 */
-.apiImage {
+/* ============================================
+   占位框：固定比例，加载前后大小不变
+   Xecades 名片 SVG 约 800 × 418
+   ============================================ */
+.apiImageWrapper {
+  position: relative;
   width: 100%;
-  height: auto;
-  max-height: 260px;
+  aspect-ratio: 800 / 418;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 图片绝对定位铺满容器 */
+.apiImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 6px;
 }
 
 /* ========== 响应式 ========== */
