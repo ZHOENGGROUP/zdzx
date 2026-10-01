@@ -14,8 +14,8 @@ const peopleGroups = [
           '曾主持多项教育创新项目，成果获省级表彰。',
           '现任活动中心名誉顾问，参与重大决策与规划。',
         ],
-        // 每人独立的 API 链接（可带参数）
-        apiUrl: 'https://api.xecades.xyz/api?encode=json',
+        // Xecades API 地址，返回 SVG 图片，可带自定义参数
+        apiUrl: 'https://api.xecades.xyz/api',
       },
       {
         name: '李静怡',
@@ -27,7 +27,7 @@ const peopleGroups = [
           '在高校从事教育学研究，发表论文数十篇。',
           '为活动中心提供学术方向与课程设计指导。',
         ],
-        apiUrl: 'https://api.xecades.xyz/api?encode=json&color=blue',
+        apiUrl: 'https://api.xecades.xyz/api?color=blue',
       },
     ],
   },
@@ -45,7 +45,7 @@ const peopleGroups = [
           '推动多项开源项目在校内的落地应用。',
           '持续为线上活动提供技术支持与优化建议。',
         ],
-        apiUrl: 'https://api.xecades.xyz/api?encode=json&theme=dark',
+        apiUrl: 'https://api.xecades.xyz/api?theme=dark',
       },
       {
         name: '陈佳琪',
@@ -57,7 +57,7 @@ const peopleGroups = [
           '擅长活动流程设计与用户互动体验优化。',
           '为活动中心建立了一套完整的活动运营规范。',
         ],
-        apiUrl: 'https://api.xecades.xyz/api?encode=json&font=楷体',
+        apiUrl: 'https://api.xecades.xyz/api?font=楷体',
       },
     ],
   },
