@@ -1,4 +1,4 @@
-/* src/pages/people/styles.module.css */
+/* src/pages/personages/styles.module.css */
 
 /* ========== 页面头部 ========== */
 .header {
@@ -156,14 +156,13 @@
   margin: 0;
 }
 
-/* ========== 人物卡片列表：一行一个 ========== */
+/* ========== 人物卡片列表 ========== */
 .personList {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* 单个卡片：左侧内容 + 右侧 API 框 */
 .personCard {
   display: flex;
   gap: 2rem;
@@ -181,13 +180,11 @@
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* 左侧内容区 */
 .personLeft {
   flex: 1;
   min-width: 0;
 }
 
-/* 头像 + 姓名 + 称号 排布 */
 .personHeader {
   display: flex;
   align-items: center;
@@ -195,7 +192,10 @@
   margin-bottom: 1rem;
 }
 
-/* 头像容器：圆形 */
+/* ============================================
+   头像容器：分层方案
+   底层是默认头像，图片绝对定位覆盖在上层
+   ============================================ */
 .avatarWrapper {
   position: relative;
   width: 68px;
@@ -204,29 +204,29 @@
   overflow: hidden;
   flex-shrink: 0;
   background-color: var(--ifm-color-emphasis-200);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 2px solid var(--ifm-color-emphasis-200);
 }
 
+/* 默认头像（底层，绝对定位铺满） */
+.defaultAvatar {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-500);
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+/* 用户头像（覆盖层，绝对定位铺满） */
 .avatar {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
   display: block;
-}
-
-/* 默认头像（无图片时显示） */
-.defaultAvatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  color: var(--ifm-color-emphasis-500);
-  background-color: var(--ifm-color-emphasis-200);
 }
 
 /* 姓名与称号 */
@@ -272,7 +272,7 @@
   opacity: 0.7;
 }
 
-/* 简介条目：不带项目符号 */
+/* 简介条目 */
 .personDescriptions {
   list-style: none;
   padding: 0;
@@ -284,14 +284,15 @@
   color: var(--ifm-color-emphasis-700);
   line-height: 1.75;
   margin-bottom: 0.3rem;
-  padding-left: 0;
 }
 
 .personDescriptions li:last-child {
   margin-bottom: 0;
 }
 
-/* 右侧 API 框 */
+/* ============================================
+   右侧 API 框
+   ============================================ */
 .personRight {
   width: 280px;
   flex-shrink: 0;
@@ -299,7 +300,6 @@
   align-items: center;
 }
 
-/* API 框外观 */
 .apiBox {
   width: 100%;
   background: linear-gradient(
@@ -314,7 +314,6 @@
     0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* 暗色模式 API 框 */
 [data-theme='dark'] .apiBox {
   background: linear-gradient(
     135deg,
@@ -359,30 +358,19 @@
 }
 
 .apiContent {
-  min-height: 90px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  min-height: 100px;
 }
 
-.apiText {
-  font-size: 0.92rem;
-  color: var(--ifm-color-emphasis-800);
-  line-height: 1.65;
-  margin: 0;
-}
-
-.apiFrom {
-  font-size: 0.78rem;
-  color: var(--ifm-color-emphasis-600);
-  text-align: right;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.apiLoading {
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-500);
+/* API 返回的 SVG 图片 */
+.apiImage {
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+  display: block;
 }
 
 /* ========== 响应式 ========== */
@@ -394,7 +382,6 @@
   .headerRight {
     justify-content: flex-start;
   }
-  /* 卡片改为纵向堆叠 */
   .personCard {
     flex-direction: column;
     gap: 1.25rem;
