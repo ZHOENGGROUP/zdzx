@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
-import { useColorMode } from '@docusaurus/theme-common';
 import peopleGroups from '@site/src/data/personages';
 import styles from './styles.module.css';
 
@@ -12,9 +11,7 @@ const totalPeople = peopleGroups.reduce(
   0
 );
 
-/* ==========================================================
-   头像组件：分层方案
-   ========================================================== */
+/* ============ 头像组件 ============ */
 function Avatar({ src, alt, name }) {
   const [failed, setFailed] = useState(false);
 
@@ -35,53 +32,40 @@ function Avatar({ src, alt, name }) {
   );
 }
 
-/* ==========================================================
-   个人名片组件
-   - 使用 useColorMode 获取当前实际生效的主题
-   - 根据主题切换使用不同的 API 地址
-   - 外层有固定比例的占位框，加载前后大小不变
-   ========================================================== */
-function ApiBox({ apiUrlLight, apiUrlDark }) {
-  const { colorMode } = useColorMode();   // 'light' 或 'dark'，自动处理跟随系统
-  const [timestamp, setTimestamp] = useState(Date.now());
-
-  const refresh = () => setTimestamp(Date.now());
-
-  const baseUrl = colorMode === 'dark' ? apiUrlDark : apiUrlLight;
-  // 时间戳防止缓存
-  const urlWithTs = `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}_t=${timestamp}`;
+/* ============ 个人名片组件 ============ */
+function ProfileCard({ profile }) {
+  if (!profile) return null;
 
   return (
-    <div className={styles.apiBox}>
-      <div className={styles.apiHeader}>
-        <Icon
-          icon="lucide:quote"
-          width={16}
-          height={16}
-          className={styles.apiIcon}
-        />
-        <span>个人名片</span>
-        <button
-          className={styles.apiRefresh}
-          onClick={refresh}
-          aria-label="刷新"
-          type="button"
-        >
-          <Icon icon="lucide:refresh-cw" width={14} height={14} />
-        </button>
+    <div className={styles.profileCard}>
+      {/* 信息列表 */}
+      <div className={styles.profileItems}>
+        {profile.items.map((item, i) => (
+          <div key={i} className={styles.profileItem}>
+            <span className={styles.profileIconBox}>
+              <Icon
+                icon={item.icon}
+                width={16}
+                height={16}
+                className={styles.profileIcon}
+              />
+            </span>
+            <span className={styles.profileLabel}>{item.label}</span>
+            <span className={styles.profileValue}>{item.value}</span>
+          </div>
+        ))}
       </div>
-      <div className={styles.apiContent}>
-        {/* 占位框：固定比例，图片绝对定位铺满 */}
-        <div className={styles.apiImageWrapper}>
-          <img
-            key={urlWithTs}
-            src={urlWithTs}
-            alt="个人名片"
-            className={styles.apiImage}
-            loading="lazy"
-          />
+
+      {/* 标签 */}
+      {profile.tags && profile.tags.length > 0 && (
+        <div className={styles.profileTags}>
+          {profile.tags.map((tag, i) => (
+            <span key={i} className={styles.profileTag}>
+              {tag}
+            </span>
+          ))}
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -188,10 +172,7 @@ export default function Personages() {
                   </div>
 
                   <div className={styles.personRight}>
-                    <ApiBox
-                      apiUrlLight={person.apiUrlLight}
-                      apiUrlDark={person.apiUrlDark}
-                    />
+                    <ProfileCard profile={person.profile} />
                   </div>
                 </div>
               ))}
