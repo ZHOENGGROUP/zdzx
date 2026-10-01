@@ -192,7 +192,7 @@
   margin-bottom: 1rem;
 }
 
-/* 头像容器 */
+/* 头像容器：固定尺寸，保证图片和默认图标完全一致 */
 .avatarWrapper {
   position: relative;
   width: 68px;
@@ -204,6 +204,7 @@
   border: 2px solid var(--ifm-color-emphasis-200);
 }
 
+/* 默认图标：铺满整个容器 */
 .defaultAvatar {
   position: absolute;
   inset: 0;
@@ -214,6 +215,7 @@
   background-color: var(--ifm-color-emphasis-200);
 }
 
+/* 头像图片：与默认图标同尺寸 */
 .avatar {
   position: absolute;
   inset: 0;
