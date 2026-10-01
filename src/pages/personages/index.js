@@ -38,7 +38,6 @@ function ProfileCard({ profile }) {
 
   return (
     <div className={styles.profileCard}>
-      {/* 信息列表 */}
       <div className={styles.profileItems}>
         {profile.items.map((item, i) => (
           <div key={i} className={styles.profileItem}>
@@ -56,7 +55,6 @@ function ProfileCard({ profile }) {
         ))}
       </div>
 
-      {/* 标签 */}
       {profile.tags && profile.tags.length > 0 && (
         <div className={styles.profileTags}>
           {profile.tags.map((tag, i) => (
@@ -78,7 +76,6 @@ export default function Personages() {
       description="河北正定中学 · 线上活动中心的名誉人物"
     >
       <div className="container margin-vert--lg">
-        {/* ===== 页面头部 ===== */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <h1 className={styles.title}>
@@ -91,11 +88,11 @@ export default function Personages() {
           </div>
           <div className={styles.headerRight}>
             <a
-              href="mailto:contact@zhoeng.com.cn?subject=申请参选名誉人物&body=姓名：%0A称号：%0A座右铭：%0A简介：%0A头像："
+              href="mailto:contact@zhoeng.com.cn?subject=申请加入名誉人物&body=姓名：%0A称号：%0A座右铭：%0A简介：%0A头像："
               className={styles.requestButton}
             >
               <Icon icon="lucide:link-2" width={14} height={14} />
-              申请参选
+              申请加入
             </a>
             <div className={styles.stats}>
               <div className={styles.statBox}>
@@ -122,7 +119,6 @@ export default function Personages() {
           </div>
         </div>
 
-        {/* ===== 分组列表 ===== */}
         {peopleGroups.map((group, groupIndex) => (
           <div key={groupIndex} className={styles.group}>
             <div className={styles.groupHeader}>
