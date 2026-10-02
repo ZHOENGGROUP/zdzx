@@ -164,7 +164,7 @@ const config = {
             position: 'right',
             items: [
               { to: '/changelog', label: '更新日志' },
-              { to: '/agreement', label: '用户协议' },
+              { to: '/useragreement', label: '用户协议' },
               { to: '/privacy', label: '隐私政策' },
               { to: '/disclaimer', label: '免责声明' },
             ],
@@ -225,7 +225,7 @@ const config = {
             title: '网站',
             items: [
               { label: '更新日志', to: '/changelog' },
-              { label: '用户协议', to: '/agreement' },
+              { label: '用户协议', to: '/useragreement' },
               { label: '隐私政策', to: '/privacy' },
               { label: '免责声明', to: '/disclaimer' },
             ],
