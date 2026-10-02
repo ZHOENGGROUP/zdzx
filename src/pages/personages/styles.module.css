@@ -192,7 +192,7 @@
   margin-bottom: 1rem;
 }
 
-/* 头像容器：固定尺寸，保证图片和默认图标完全一致 */
+/* 头像容器：固定尺寸，无边框、无背景，避免灰色环 */
 .avatarWrapper {
   position: relative;
   width: 68px;
@@ -200,11 +200,9 @@
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  background-color: var(--ifm-color-emphasis-200);
-  border: 2px solid var(--ifm-color-emphasis-200);
 }
 
-/* 默认图标：铺满整个容器 */
+/* 默认图标：铺满整个容器（自带灰色背景） */
 .defaultAvatar {
   position: absolute;
   inset: 0;
@@ -215,7 +213,7 @@
   background-color: var(--ifm-color-emphasis-200);
 }
 
-/* 头像图片：与默认图标同尺寸 */
+/* 头像图片：与默认图标同尺寸，铺满容器 */
 .avatar {
   position: absolute;
   inset: 0;
@@ -297,7 +295,6 @@
   align-items: stretch;
 }
 
-/* 名片卡片：白色背景 */
 .profileCard {
   width: 100%;
   display: flex;
@@ -311,13 +308,11 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* 暗色模式下的名片 */
 [data-theme='dark'] .profileCard {
   background-color: #1e2e3f;
   border-color: var(--ifm-color-emphasis-300);
 }
 
-/* 信息列表 */
 .profileItems {
   display: flex;
   flex-direction: column;
@@ -333,7 +328,6 @@
   line-height: 1.4;
 }
 
-/* 图标框 */
 .profileIconBox {
   display: inline-flex;
   align-items: center;
@@ -355,13 +349,11 @@
   display: block;
 }
 
-/* 标签 */
 .profileLabel {
   color: var(--ifm-color-emphasis-600);
   font-size: 0.8rem;
 }
 
-/* 值 */
 .profileValue {
   color: var(--ifm-font-color-base);
   font-weight: 500;
@@ -370,7 +362,6 @@
   white-space: nowrap;
 }
 
-/* 标签组 */
 .profileTags {
   display: flex;
   flex-wrap: wrap;
