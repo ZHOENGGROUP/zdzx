@@ -192,7 +192,7 @@
   margin-bottom: 1rem;
 }
 
-/* 头像容器：固定尺寸，无边框、无背景，避免灰色环 */
+/* 头像容器：固定尺寸，无边框、无背景 */
 .avatarWrapper {
   position: relative;
   width: 68px;
@@ -202,7 +202,7 @@
   flex-shrink: 0;
 }
 
-/* 默认图标：铺满整个容器（自带灰色背景） */
+/* 默认图标：绝对定位覆盖在图片上方 */
 .defaultAvatar {
   position: absolute;
   inset: 0;
@@ -211,9 +211,10 @@
   justify-content: center;
   color: var(--ifm-color-emphasis-500);
   background-color: var(--ifm-color-emphasis-200);
+  z-index: 1;
 }
 
-/* 头像图片：与默认图标同尺寸，铺满容器 */
+/* 头像图片：绝对定位，铺满容器 */
 .avatar {
   position: absolute;
   inset: 0;
@@ -222,6 +223,7 @@
   object-fit: cover;
   border-radius: 50%;
   display: block;
+  z-index: 0;
 }
 
 /* 姓名与称号 */
