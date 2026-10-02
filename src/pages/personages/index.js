@@ -13,35 +13,33 @@ const totalPeople = peopleGroups.reduce(
 
 /* ============ 头像组件 ============ */
 function Avatar({ src, alt, name }) {
-  // loaded 表示图片是否加载成功；failed 表示加载失败
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  // 是否需要显示默认图标：没有图片源、加载失败、或尚未加载成功
-  const showPlaceholder = !src || failed || !loaded;
+  // 图片能否显示：有 src、未失败、且已加载完成
+  const showImage = src && !failed && loaded;
+  // 是否需要显示占位图标：无 src、失败、或尚未加载完成
+  const showPlaceholder = !showImage;
 
   return (
     <div className={styles.avatarWrapper}>
-      {/* 默认图标：仅在图片未成功加载时渲染 */}
-      {showPlaceholder && (
-        <div className={styles.defaultAvatar}>
-          <Icon icon="lucide:user" width={32} height={32} />
-        </div>
-      )}
-
-      {/* 图片：加载成功后才显示，避免透明图片透出默认图标 */}
+      {/* 图片：始终渲染，用 opacity 控制可见，确保能触发 onLoad */}
       {src && !failed && (
         <img
           src={src}
           alt={alt || name}
           className={styles.avatar}
           onLoad={() => setLoaded(true)}
-          onError={() => {
-            setFailed(true);
-            setLoaded(false);
-          }}
-          style={{ display: loaded ? 'block' : 'none' }}
+          onError={() => setFailed(true)}
+          style={{ opacity: loaded ? 1 : 0 }}
         />
+      )}
+
+      {/* 占位图标：显示在图片上层，加载成功后自动卸载 */}
+      {showPlaceholder && (
+        <div className={styles.defaultAvatar}>
+          <Icon icon="lucide:user" width={32} height={32} />
+        </div>
       )}
     </div>
   );
