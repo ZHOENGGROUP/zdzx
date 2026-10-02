@@ -1,5 +1,5 @@
 // src/pages/personages/index.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
@@ -15,17 +15,35 @@ const totalPeople = peopleGroups.reduce(
 function Avatar({ src, alt, name }) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef(null);
 
-  // 图片能否显示：有 src、未失败、且已加载完成
-  const showImage = src && !failed && loaded;
-  // 是否需要显示占位图标：无 src、失败、或尚未加载完成
-  const showPlaceholder = !showImage;
+  // 处理浏览器缓存的情况：图片挂载时可能已经加载完成
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete) {
+      if (img.naturalWidth > 0) {
+        setLoaded(true);
+      } else {
+        setFailed(true);
+      }
+    }
+  }, [src]);
+
+  // 当 src 变化时重置状态
+  useEffect(() => {
+    setLoaded(false);
+    setFailed(false);
+  }, [src]);
+
+  // 是否需要显示占位图标
+  const showPlaceholder = !src || failed || !loaded;
 
   return (
     <div className={styles.avatarWrapper}>
-      {/* 图片：始终渲染，用 opacity 控制可见，确保能触发 onLoad */}
+      {/* 图片始终渲染在 DOM 中，保证加载并触发 onLoad */}
       {src && !failed && (
         <img
+          ref={imgRef}
           src={src}
           alt={alt || name}
           className={styles.avatar}
@@ -35,7 +53,7 @@ function Avatar({ src, alt, name }) {
         />
       )}
 
-      {/* 占位图标：显示在图片上层，加载成功后自动卸载 */}
+      {/* 占位图标：图片加载完成后从 DOM 中完全卸载，防止透明图片透出 */}
       {showPlaceholder && (
         <div className={styles.defaultAvatar}>
           <Icon icon="lucide:user" width={32} height={32} />
