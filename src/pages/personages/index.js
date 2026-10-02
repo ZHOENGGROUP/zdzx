@@ -11,13 +11,13 @@ const totalPeople = peopleGroups.reduce(
   0
 );
 
-/* ============ 头像组件 ============ */
-function Avatar({ src, alt, name }) {
+/* ============ 内部头像组件（通过 key 重建，状态独立） ============ */
+function AvatarInner({ src, alt, name }) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
   const imgRef = useRef(null);
 
-  // 处理浏览器缓存的情况：图片挂载时可能已经加载完成
+  // 挂载时检查图片是否已经缓存完成（此时 onLoad 可能不会再触发）
   useEffect(() => {
     const img = imgRef.current;
     if (img && img.complete) {
@@ -27,21 +27,13 @@ function Avatar({ src, alt, name }) {
         setFailed(true);
       }
     }
-  }, [src]);
+  }, []);
 
-  // 当 src 变化时重置状态
-  useEffect(() => {
-    setLoaded(false);
-    setFailed(false);
-  }, [src]);
-
-  // 是否需要显示占位图标
-  const showPlaceholder = !src || failed || !loaded;
+  const showPlaceholder = failed || !loaded;
 
   return (
     <div className={styles.avatarWrapper}>
-      {/* 图片始终渲染在 DOM 中，保证加载并触发 onLoad */}
-      {src && !failed && (
+      {!failed && (
         <img
           ref={imgRef}
           src={src}
@@ -53,7 +45,6 @@ function Avatar({ src, alt, name }) {
         />
       )}
 
-      {/* 占位图标：图片加载完成后从 DOM 中完全卸载，防止透明图片透出 */}
       {showPlaceholder && (
         <div className={styles.defaultAvatar}>
           <Icon icon="lucide:user" width={32} height={32} />
@@ -61,6 +52,23 @@ function Avatar({ src, alt, name }) {
       )}
     </div>
   );
+}
+
+/* ============ 头像入口组件 ============ */
+function Avatar({ src, alt, name }) {
+  // 无 src 时直接显示占位图标
+  if (!src) {
+    return (
+      <div className={styles.avatarWrapper}>
+        <div className={styles.defaultAvatar}>
+          <Icon icon="lucide:user" width={32} height={32} />
+        </div>
+      </div>
+    );
+  }
+
+  // 有 src 时使用 key 让子组件随 src 变化自动重建
+  return <AvatarInner key={src} src={src} alt={alt} name={name} />;
 }
 
 /* ============ 个人名片组件 ============ */
