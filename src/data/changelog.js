@@ -24,6 +24,16 @@ export const TYPE_COLOR = {
 
 export const CHANGELOG_LIST = [
   {
+    date: '2026-10-03',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.1.0</code>',
+  },
+  {
+    date: '2026-10-01',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/personages">人物界面</a> <code>v1.0.0</code>',
+  },
+  {
     date: '2026-08-19',
     type: 'released',
     content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.0.0</code>',
