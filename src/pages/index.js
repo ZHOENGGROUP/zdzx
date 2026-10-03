@@ -8,6 +8,7 @@ import Heading from '@theme/Heading';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { latestNews, recommendedArticles } from '@site/src/data/home';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -135,6 +136,43 @@ export default function Home() {
                 <div className={styles.featureButtons}>
                   <Link to="/docs/about" className={styles.btnPrimary}>了解详情</Link>
                   <Link to="/docs/about/join" className={styles.btnOutline}>加入我们</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================== 最新新闻 & 推荐文章 ==================== */}
+        <section className={styles.newsSection}>
+          <div className={styles.container}>
+            <div className={styles.newsGrid}>
+              {/* 左栏：最新新闻 */}
+              <div className={styles.newsColumn}>
+                <h2 className={styles.newsColumnTitle}>最新新闻</h2>
+                <div className={styles.newsList}>
+                  {latestNews.map((item) => (
+                    <Link key={item.id} to={item.link} className={styles.newsCardLink}>
+                      <div className={styles.newsCard}>
+                        <div className={styles.newsTitle}>{item.title}</div>
+                        <div className={styles.newsDate}>{item.date}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* 右栏：推荐文章 */}
+              <div className={styles.newsColumn}>
+                <h2 className={styles.newsColumnTitle}>推荐文章</h2>
+                <div className={styles.newsList}>
+                  {recommendedArticles.map((item) => (
+                    <Link key={item.id} to={item.link} className={styles.newsCardLink}>
+                      <div className={styles.newsCard}>
+                        <div className={styles.newsTitle}>{item.title}</div>
+                        <div className={styles.newsDate}>{item.date}</div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
