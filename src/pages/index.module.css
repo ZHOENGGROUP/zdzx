@@ -284,3 +284,129 @@
     font-size: 1.5rem;
   }
 }
+/* ==================== 最新新闻 & 推荐文章 ==================== */
+.newsSection {
+  padding: 3rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.newsColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsColumnTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* 列表容器：超过 6 个卡片时可滚动 */
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  /* 6 个卡片的高度：每个卡片约 68px + gap 12px，合计约 6*68+5*12 = 468px */
+  max-height: 468px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  /* 细滚动条 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ifm-color-emphasis-300) transparent;
+}
+
+.newsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.newsList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.newsList::-webkit-scrollbar-thumb {
+  background-color: var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+}
+
+.newsList::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ifm-color-emphasis-400);
+}
+
+/* 卡片链接 */
+.newsCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.newsCardLink:hover {
+  text-decoration: none;
+}
+
+/* 单个卡片：固定高度，不足 6 个时不拉伸 */
+.newsCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  height: 68px;
+  min-height: 68px;
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newsCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 新闻标题：单行省略 */
+.newsTitle {
+  flex: 1;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 新闻日期：灰色，不换行 */
+.newsDate {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  white-space: nowrap;
+}
+
+/* 暗色模式下的标题 */
+[data-theme='dark'] .newsTitle {
+  color: var(--ifm-font-color-base);
+}
+
+/* 响应式：小屏单列 */
+@media screen and (max-width: 768px) {
+  .newsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .newsColumnTitle {
+    font-size: 1.3rem;
+  }
+  .newsList {
+    max-height: none;
+  }
+}
