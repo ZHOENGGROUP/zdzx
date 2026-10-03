@@ -410,3 +410,7 @@
     max-height: none;
   }
 }
+/* 网站动态标题区与两栏内容之间的间距 */
+.newsSection .sectionSubtitle {
+  margin-bottom: 2rem;
+}
