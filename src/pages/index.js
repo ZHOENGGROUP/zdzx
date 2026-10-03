@@ -16,7 +16,6 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
-        {/* 校徽校名组合图标 */}
         <img
           src="/img/zdzx_c.png"
           alt="校徽校名组合"
@@ -39,7 +38,6 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  // 轮播配置
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -63,7 +61,6 @@ export default function Home() {
     ],
   };
 
-  // 宣传图数据（5张 2128x846）
   const banners = [
     { id: 1, src: '/img/zdzx_gate_t.jpg', alt: '校门带文字' },
     { id: 2, src: '/img/zdzx_qhm_t.jpg', alt: '清华门带文字' },
@@ -72,7 +69,6 @@ export default function Home() {
     { id: 5, src: '/img/zdzx_all_t.jpg', alt: '鸟瞰图带文字' },
   ];
 
-  // 链接卡片数据
   const linkCards = [
     { id: 1, title: '帮助中心', desc: '网站协议、公告通知与服务指南', icon: '📚', link: '/docs/help' },
     { id: 2, title: '新闻中心', desc: '官方动态、校园新闻与媒体报道', icon: '📰', link: '/docs/news' },
@@ -142,9 +138,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ==================== 最新新闻 & 推荐文章 ==================== */}
+        {/* ==================== 网站动态：最新新闻 & 推荐文章 ==================== */}
         <section className={styles.newsSection}>
           <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>网站动态</h2>
+            <p className={styles.sectionSubtitle}>
+              闻正中之要闻 · 观天下之雅文
+            </p>
             <div className={styles.newsGrid}>
               {/* 左栏：最新新闻 */}
               <div className={styles.newsColumn}>
