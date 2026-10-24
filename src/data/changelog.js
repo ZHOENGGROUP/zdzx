@@ -24,19 +24,74 @@ export const TYPE_COLOR = {
 
 export const CHANGELOG_LIST = [
   {
+    date: '2026-10-24',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/blog">记录首页</a> <code>v1.0.0</code>',
+  },
+  {
     date: '2026-10-03',
     type: 'released',
-    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.1.0</code>',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.1.0</code>'，新增“网站动态”栏目,
+  },
+  {
+    date: '2026-10-02',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/personages">人物页面</a> <code>v1.1.0</code>',
   },
   {
     date: '2026-10-01',
     type: 'released',
-    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/personages">人物界面</a> <code>v1.0.0</code>',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/personages">人物页面</a> <code>v1.0.0</code>',
+  },
+  {
+    date: '2026-09-25',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/resources">资源页面</a> <code>v1.1.0</code>',
+  },
+    {
+    date: '2026-09-25',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/about">关于页面</a> <code>v1.1.0</code>',
+  },
+  {
+    date: '2026-09-25',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/friends">友链页面</a> <code>v1.1.0</code>',
+  },
+  {
+    date: '2026-09-25',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/changelog">日志页面</a> <code>v1.1.0</code>',
+  },
+  {
+    date: '2026-09-12',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/resources">资源页面</a> <code>v1.0.0</code>',
+  },
+  {
+    date: '2026-08-23',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/about">关于页面</a> <code>v1.0.0</code>',
+  },
+  {
+    date: '2026-08-22',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/friends">友链页面</a> <code>v1.0.0</code>',
+  },
+  {
+    date: '2026-08-20',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/changelog">日志页面</a> <code>v1.0.0</code>',
+  },
+  {
+    date: '2026-08-20',
+    type: 'released',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布 <a href="https://zdzx.zhoeng.com.cn/docs/help">帮助中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/news">新闻中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/article">文章中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/activity">活动中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/campus">校园中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/technology">科技中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/contest">竞赛中心</a>、<a href="https://zdzx.zhoeng.com.cn/docs/alumni">校友中心</a> 首页 <code>v1.0.0</code>',
   },
   {
     date: '2026-08-19',
     type: 'released',
-    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.0.0</code>',
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.0.0</code>'，发布顶部菜单栏、底部导航栏、“校园风采”栏目、“快速导航”栏目,
   },
   {
     date: '2026-08-18',
