@@ -1,0 +1,85 @@
+/* src/theme/BlogPostPage/styles.module.css */
+
+/* ==================== 页面整体 ==================== */
+.pageWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+/* ==================== 顶部栏 ==================== */
+.topBar {
+  margin-bottom: 2rem;
+}
+
+/* 返回按钮 */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background-color: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.backButton:hover {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+  text-decoration: none;
+  transform: translateX(-3px);
+  box-shadow: 0 6px 18px rgba(52, 152, 219, 0.25);
+}
+
+.backArrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.backButton:hover .backArrow {
+  transform: translateX(-3px);
+}
+
+/* ==================== 文章区域 ==================== */
+.articleWrapper {
+  /* BlogPostItem 自身已有内边距，这里不再加额外 padding */
+  min-width: 0;
+}
+
+/* 文章底部「上一篇 / 下一篇」的间距微调 */
+.articleWrapper > :last-child {
+  margin-top: 3rem;
+}
+
+/* ==================== 暗色模式 ==================== */
+[data-theme='dark'] .backButton {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .backButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* ==================== 响应式 ==================== */
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .topBar {
+    margin-bottom: 1.5rem;
+  }
+
+  .backButton {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
