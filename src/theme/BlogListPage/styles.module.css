@@ -1,0 +1,307 @@
+/* src/theme/BlogListPage/styles.module.css */
+
+/* ==================== 页面整体 ==================== */
+.pageWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 5rem;
+}
+
+/* ==================== 页面头部 ==================== */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.pageTitle {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.pageDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+}
+
+/* 标题下方的装饰短线 */
+.headerLine {
+  width: 60px;
+  height: 4px;
+  margin: 1.4rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary-lightest),
+    var(--ifm-color-primary),
+    var(--ifm-color-primary-lightest)
+  );
+}
+
+/* ==================== 时间轴容器 ==================== */
+.timeline {
+  position: relative;
+  padding: 1rem 0 2rem;
+}
+
+/* 中间那条蛇形主线（垂直渐变，两端淡出） */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--ifm-color-primary-lightest) 6%,
+    var(--ifm-color-primary) 50%,
+    var(--ifm-color-primary-lightest) 94%,
+    transparent 100%
+  );
+}
+
+/* ==================== 单个时间轴条目 ==================== */
+.item {
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0.9rem 0;
+}
+
+/* 左侧条目：占左半边，右内边距留出与中线的距离 */
+.item.left {
+  left: 0;
+  padding-right: 3rem;
+}
+
+/* 右侧条目：占右半边，左内边距留出与中线的距离 */
+.item.right {
+  left: 50%;
+  padding-left: 3rem;
+}
+
+/* ==================== 圆点 ==================== */
+.dot {
+  position: absolute;
+  top: 2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ifm-background-surface-color);
+  border: 3px solid var(--ifm-color-primary);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+  z-index: 2;
+  transition: all 0.25s ease;
+}
+
+.item.left .dot {
+  right: -8px;
+}
+
+.item.right .dot {
+  left: -8px;
+}
+
+.item:hover .dot {
+  background: var(--ifm-color-primary);
+  box-shadow: 0 0 0 7px rgba(52, 152, 219, 0.22);
+  transform: scale(1.1);
+}
+
+/* ==================== 卡片 ==================== */
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  position: relative;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background-color: var(--ifm-card-background-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cardLink:hover .card {
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 12px 30px rgba(52, 152, 219, 0.18);
+}
+
+/* 日期 */
+.date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.45rem;
+}
+
+/* 标题 */
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ifm-heading-color);
+  margin: 0 0 0.5rem;
+}
+
+/* 摘要（最多两行） */
+.desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0 0 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 标签 */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  color: var(--ifm-color-primary);
+  background-color: rgba(52, 152, 219, 0.1);
+  white-space: nowrap;
+}
+
+/* 阅读全文 */
+.more {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1rem;
+  padding: 4rem 0;
+}
+
+/* ==================== 分页 ==================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 3.5rem;
+}
+
+.pageLink,
+.pageActive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ifm-color-emphasis-800);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.pageLink:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.pageActive {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+.pageActive:hover {
+  color: #fff;
+}
+
+/* ==================== 暗色模式微调 ==================== */
+[data-theme='dark'] .dot {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='dark'] .cardLink:hover .card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== 响应式：移动端改为左侧单列 ==================== */
+@media screen and (max-width: 768px) {
+  .pageWrapper {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .pageTitle {
+    font-size: 1.9rem;
+  }
+
+  /* 主线移到左侧 */
+  .timeline::before {
+    left: 22px;
+    transform: none;
+  }
+
+  /* 所有条目占满宽度，统一靠右排列 */
+  .item,
+  .item.left,
+  .item.right {
+    width: 100%;
+    left: 0;
+    padding-left: 3.5rem;
+    padding-right: 0;
+  }
+
+  /* 圆点对齐到左侧主线 */
+  .dot,
+  .item.left .dot,
+  .item.right .dot {
+    left: 14px;
+    right: auto;
+    top: 1.9rem;
+  }
+
+  .item.left .dot {
+    right: auto;
+  }
+}
