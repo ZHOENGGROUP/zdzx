@@ -49,7 +49,7 @@ const config = {
         blog: {
           showReadingTime: true,
           blogTitle: '记录',
-          blogDescription: '事件与活动记录',
+          blogDescription: '网站事件与活动记录',
           postsPerPage: 10,
           feedOptions: {
             type: ['rss', 'atom'],
