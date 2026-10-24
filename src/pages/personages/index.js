@@ -131,7 +131,7 @@ export default function Personages() {
               className={styles.requestButton}
             >
               <Icon icon="lucide:link-2" width={14} height={14} />
-              申请加入
+              申请认证
             </a>
             <div className={styles.stats}>
               <div className={styles.statBox}>
