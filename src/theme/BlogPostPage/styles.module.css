@@ -1,18 +1,16 @@
 /* src/theme/BlogPostPage/styles.module.css */
 
-/* ==================== 页面整体 ==================== */
 .pageWrapper {
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.25rem 5rem;
 }
 
-/* ==================== 顶部栏 ==================== */
+/* ===== 顶部返回栏 ===== */
 .topBar {
   margin-bottom: 2rem;
 }
 
-/* 返回按钮 */
 .backButton {
   display: inline-flex;
   align-items: center;
@@ -47,28 +45,21 @@
   transform: translateX(-3px);
 }
 
-/* ==================== 文章区域 ==================== */
+/* ===== 文章区域 ===== */
 .articleWrapper {
-  /* BlogPostItem 自身已有内边距，这里不再加额外 padding */
   min-width: 0;
 }
 
-/* 文章底部「上一篇 / 下一篇」的间距微调 */
 .articleWrapper > :last-child {
   margin-top: 3rem;
 }
 
-/* ==================== 暗色模式 ==================== */
+/* ===== 暗色模式 ===== */
 [data-theme='dark'] .backButton {
   border-color: var(--ifm-color-emphasis-400);
 }
 
-[data-theme='dark'] .backButton:hover {
-  border-color: var(--ifm-color-primary);
-  color: #fff;
-}
-
-/* ==================== 响应式 ==================== */
+/* ===== 响应式 ===== */
 @media screen and (max-width: 768px) {
   .pageWrapper {
     padding: 2rem 1rem 4rem;
