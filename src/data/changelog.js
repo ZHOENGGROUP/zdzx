@@ -31,7 +31,7 @@ export const CHANGELOG_LIST = [
   {
     date: '2026-10-03',
     type: 'released',
-    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.1.0</code>'，新增“网站动态”栏目,
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.1.0</code>，新增“网站动态”栏目',
   },
   {
     date: '2026-10-02',
@@ -91,7 +91,7 @@ export const CHANGELOG_LIST = [
   {
     date: '2026-08-19',
     type: 'released',
-    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.0.0</code>'，发布顶部菜单栏、底部导航栏、“校园风采”栏目、“快速导航”栏目,
+    content: '网站 <a href="https://zdzx.zhoeng.com.cn/">河北正定中学 · 线上活动中心</a> 发布首页 <code>v1.0.0</code>，发布顶部菜单栏、底部导航栏、“校园风采”栏目、“快速导航”栏目',
   },
   {
     date: '2026-08-18',
