@@ -1,6 +1,32 @@
 // src/data/personages.js
 const peopleGroups = [
   {
+    title: '数学竞赛生',
+    description: '河北正定中学本部数学学科竞赛竞赛生',
+    people: [
+      {
+        name: 'WRF',
+        title: '2024 级数学竞赛生 · 省联赛一等奖 · 河北省数学竞赛省队选手',
+        avatar: '',
+        motto: 'xxx',
+        descriptions: [
+          '2024 级数学竞赛生 · 高考物化生选科组合',
+          '第 42 届（2026）全国中学生数学奥林匹克竞赛（预赛）一等奖',
+          '第 42 届（2026）全国高中数学联赛（省 17 名）入选河北省数学竞赛省队',
+        ],
+        profile: {
+          items: [
+            { icon: 'simple-icons:github', label: 'GitHub', value: 'xxx' },
+            { icon: 'simple-icons:wechat', label: '微信', value: 'xxx' },
+            { icon: 'simple-icons:qq', label: 'QQ', value: 'xxx' },
+            { icon: 'ri:mail-fill', label: '邮箱', value: 'xxx' },
+          ],
+          tags: ['数学竞赛', '奥赛省队', '一等奖', '物化生'],
+        },
+      },
+    ],
+  },
+  {
     title: '物理竞赛生',
     description: '河北正定中学本部物理学科竞赛竞赛生',
     people: [
